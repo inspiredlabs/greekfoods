@@ -1,13 +1,67 @@
-{{ define "main" }}
+<!DOCTYPE html>
+<html style="font-family: monospace;">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.inspiredlabs.co.uk/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
 
-{{ partial "short-text" .Params.blurb}}
-
-{{ partial "2-up" .Params }}
-
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
-
-{{ end }}
+</head>
+<body>
+Domain name:<br />
+greekfoods.co.uk
+<br /><br />
+<p style="font-weight: bold;">Billing URL: <a href="https://monzo.me/scottphillips/85.00?d=GreekFoods.co.uk%20Domain%20name%20renewal
+">Pay Now</a>
+</p>
+<br /><br />
+Data validation:<br />
+Nominet was not able to match the registrant's name and/or address against a 3rd party source on 25-Nov-2013
+<br /><br />
+Registered to:<br />
+Inspired Labs<br />
+inspiredlabs.co.uk<br />
+<br /><br />
+Relevant dates:<br />
+Registered on: 25-Jul-2013<br />
+Expiry date: 25-Jul-2020<br />
+Last updated: 07-Jul-2019<br />
+<br /><br />
+Registration status:<br />
+Registered until expiry date.<br />
+<br /><br />
+Name servers:<br />
+ns1.pacwebhosting.co.uk 151.252.3.21 2a01:b040::8<br />
+ns2.pacwebhosting.co.uk 151.252.3.22 2a01:b040::9<br />
+<br /><br />
+WHOIS lookup made at 10:36:00 24-Jul-2019<br />
+<br />
+-- <br />
+This WHOIS information is provided for free by Nominet UK the central registry<br />
+for .uk domain names. This information and the .uk WHOIS are:<br />
+<br /><br /><br />
+Copyright Nominet UK 1996 - 2019.
+<br /><br /><br />
+You may not access the .uk WHOIS or use any data from it except as permitted<br />
+by the terms of use available in full at https://www.nominet.uk/whoisterms,<br />
+which includes restrictions on: (A) use of the data for advertising, or its<br />
+repackaging, recompilation, redistribution or reuse (B) obscuring, removing<br />
+or hiding any or all of this notice and (C) exceeding query rate or volume<br />
+limits. The data is provided on an 'as-is' basis and may lag behind the<br />
+register. Access may be withdrawn or restricted at any time. <br />
+</body>
+</html>
