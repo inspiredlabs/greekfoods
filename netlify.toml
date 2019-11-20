@@ -9,3 +9,20 @@
 
 [context.deploy-preview]
   command = "yarn build:preview"
+
+#https://docs.netlify.com/routing/redirects/#syntax-for-the-netlify-configuration-file
+[[redirects]]
+  from = "*"
+  to = "/"
+  status = 404
+
+#https://community.netlify.com/t/netlify-ignores-cache-control-for-304/2912/14
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+  [[headers]]
+    for = "*.png"
+    [headers.values]
+    Cache-Control = "public, max-age=300"
