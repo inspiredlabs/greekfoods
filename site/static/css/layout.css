@@ -1,0 +1,847 @@
+*, *:before, *:after {-webkit-backface-visibility: hidden;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; padding: 0; text-decoration: none; outline: none; border: none;} figure,footer,header,main,nav,section{display: block;} html{font-family: sans-serif;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;} html,body {font-size: 100%;font-family: sans-serif;}
+body,div,h1,h2,h3,h4,h5,p{margin:0;padding:0;font-size:1rem;vertical-align: middle;} a{overflow: hidden;cursor: pointer!important;/* Force hyperlink */}a:active {top: 2px;/* debugging */}u{text-decoration:underline;}
+
+/***********************************************************************/
+
+	* {margin:0;padding:0;} 
+	
+	body {
+		-webkit-touch-callout: none;
+		-webkit-text-size-adjust: none;
+		-webkit-user-select: none;
+		-webkit-highlight: none;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+	
+	html, body {
+		overflow: hidden; /* Prevent springing: http://www.html5rocks.com/en/mobile/touch/ */
+	}
+	
+	html {
+		height: 100%;  /* Fixed height bug in Opera */
+	}
+		
+	.overscroll { 
+		position: absolute;
+		width: 38rem;
+		height: 200px;
+	}
+	
+	#wrap {
+height: 100%;  /* Rem? */
+		min-height: 100%;
+		width: 100%; /* Required to fix iExplorer glitch */		
+	}
+	
+	#footer {
+		z-index: 99999; /* Always-on-top! */
+		position: relative; /* z-index needs anchor position */
+		margin-top: -142px; /* Fallback negative value of footer */
+		height: 142px; /* ACTUAL height as the footer */
+		clear:both;	
+	} 
+	
+	/*Opera Fix*/
+	body:before {/* thanks to Maleika (Kohoutec)*/
+		content:"";
+		height:100%;
+		float:left;
+		width:0;
+		margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+	}
+
+/****** IMPORTANT: cssstickyfooter.com ONLY use padding! ******/
+
+	#header {
+		pointer-events:none; /* Swipe through to BXSlider http://css-tricks.com/almanac/properties/p/pointer-events/	*/	
+		position: absolute; /* z-index needs anchor position */
+		z-index: 99999; /* Always-on-top! */
+		text-align: center;
+		vertical-align: middle;
+		color: white;
+		width: 100%;
+	}
+
+	#call-to-action-head {
+		position: relative; /* z-index needs anchor position */
+		z-index: 99999; /* Always-on-top! */
+		pointer-events:none;	
+		text-align: center;
+		vertical-align: middle;
+		padding: 1rem 0 0 0; /* top, right, bottom, left */
+	}
+	
+	#call-to-action-head ul li {
+		pointer-events:auto; /* Reintroduces touch  */
+		display:inline-block;
+		margin-right: 1rem;
+margin-left: 1rem; /* Explicit, replace with PADDING? */
+	}
+	
+	#call-to-action-head ul li a {
+		display:block; /* Maximise hit-area */
+		padding: 0.9rem 1.63rem 0.9rem 1.63rem; /* top, left, bottom, right */
+		font-size: 1.63rem;
+		color: white;
+		opacity: 0.63; /* originally: rgba(255, 255, 255, 0.63); */
+	}
+
+	#call-to-action-head ul li a:hover 
+	{
+/* opacity: 1; */
+	}
+
+	#call-to-action-head ul li a:active 
+	{
+
+	}
+
+	
+/***********************************************************************/
+
+	#nav {
+		background-color: rgba(80, 80, 80, 0.3); /*  Transparent background */
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	#call-to-action-nav {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		bottom:0;
+		width:30%;
+		left: 0;
+		float: left;
+line-height: 7rem; /* PSEUDO ELEMENTS EXIST IN COSMETICS.CSS */
+	}
+	
+	#call-to-action-nav ul li {
+		display:inline-block;
+		width: 50%;
+		float:left;
+		text-align: center;
+	} 
+	
+	#call-to-action-nav ul li a
+	{
+		display:block; /* Maximise hit-area */	
+		font-size: 1.63rem;
+		color: white;
+		opacity: 0.63; /* original perameter color: rgba(255, 255, 255, 0.63); */
+	}
+	
+	
+	#call-to-action-nav ul li a:hover /* nothing on hover */
+	{
+		opacity: 1; /* original perameter color: rgba(255, 255, 255, 1); */
+	}
+	
+	#call-to-action-nav ul li a:active /* Highlight */
+	{
+		/* top:2px;  Debugging feedback */
+	}	
+
+	#call-to-action-nav ul li a:target /* http://css-tricks.com/examples/Target/#three */
+	{
+	
+	}	
+
+/***********************************************************************/
+	
+	#blue 
+	{
+		background-color: #003464;
+	}
+
+	#green
+	{
+		background-color: #056400;
+	}
+	
+/***********************************************************************/
+
+	#strapline {
+		pointer-events:none; /* Allow swiping through to BXSlider */	
+		text-align: center;
+		color: silver;
+		font-size: 1rem;	 /* Is this a good scale? */
+		line-height: 30px; /* line-height: 1.63rem;  Requires JS to rescale */
+	}
+	
+/***********************************************************************/
+
+	.common-items {
+		float:left;	/* Force snug items */
+		bottom:0;
+		text-align: center;
+		width:70%;		
+	}
+
+	.common-items ul li {
+		float:left;	/* Force snug items. DO NOT INVERT BXSlider */	
+		overflow: hidden;
+		display:inline-block; /* this might be redundant */
+		width: 20%;
+	}
+	
+	.common-items ul li a {
+		display:block; /* Maximise hit-area */		
+		font-size: 1.63rem;
+		color: white;
+		opacity: 0.63; /* original color: rgba(255, 255, 255, 0.6); */		
+	}
+	
+	.common-items ul li a:hover {
+		opacity: 1;/* focus */
+	}
+	
+	.common-items ul li a.active {
+		opacity: 1; /* Pager example: http://jsfiddle.net/defonic/ZZSH8/ */
+		color: white;		
+	}
+
+	#nav a{
+		text-decoration: underline; /* Object oriented CSS */
+		line-height: 7rem;	
+	}
+
+/******************* SLIDE CONTAINER ************************/
+
+#multi-tool {
+	/*
+	position: fixed;  Fixes iOS bug: http://mysitemyway.com/support/topic/body-background-wont-stay-fixed-on-iphoneipad */
+	position: absolute;
+	height: 768px; /* Force height on Safari and Opera on Win7 */
+	height: 100%;
+	min-height:100%; /* Fixes Opera and Safari on Win7 */
+	height:100vh!important;
+	/* background-color: rgba(000, 000, 000, 0)!important;  
+	background-color: lightgray;
+	DEBUG Tint */
+}
+
+/******************* USER CONTENT ************************/
+
+	/* The Wordpress post goes here */
+	.PostContent {
+		/* background-color: rgba(0, 0, 0, 0);  Reset */
+		overflow-x: hidden!important; /* X */
+		position:absolute;
+		text-align: center;
+		background-color: rgba(80, 80, 80, 0.1); /* Transparent background */		
+		padding: 1rem; /* Required before viewport scaling support */
+		/* width: 32rem;  Required before viewport scaling support */
+		/* margin-right:-16rem;  Required before viewport scaling support */
+	
+
+/* shortcode & vh req: dustindiaz.com/css-shorthand/ */
+top:4rem; /* rem? FIXED GOAL POST: A LITTLE BOX */
+height:67%;/* Fallback */
+max-height:calc(90% - 0.5rem - 142px);/* FIXED GOAL POST */
+
+
+		/*
+		right:50%;
+		width: 38rem;  width: 74vw; requires fixed values 
+		margin-right: -19rem;
+		*/
+
+/* HACKING! */
+
+		-webkit-overflow-scrolling: touch; 
+
+		/* Reintroduces content selection */
+		-webkit-user-select: auto;
+		-khtml-user-select: auto;
+		-moz-user-select: auto;
+		-ms-user-select: auto;
+		user-select: auto;
+
+
+/* HACKING! */
+
+		/* Consider: http://inspiredlabs.co.uk/iscroll/demos/carousel/index.html */
+
+		/* Options: CREATE PSEUDO ELEMENTS! Render the value from scalable rems that are sympathetic to the header	...do this before the media queries.  /* height:32rem; /* Forces scroll */
+
+padding: 0 0 180px 0; /* TRouBLe Overscroll: 12.5rem!important; doesn't work in Opera! */
+background-color: rgba(255, 255, 255, 1); /* DEBUG */		
+	}
+	
+	.PostContent a {
+		background-color: rgba(128, 128, 128, 0.3); /* Transparent background */
+		padding: 0.2rem;
+		font-weight: normal; /* Don't overcook it */
+	}	
+	
+	.PostContent a:hover {
+		/*
+		color: white;
+		text-decoration: underline;
+		 */
+		background-color: rgba(128, 128, 128, 0.6); /* Transparent background */
+	}
+	
+	body, html, #wrap, nav { 	
+		/* Removes selection */	
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		/* Removes janky highlight on touch */		
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+ 	} 
+
+	#header h1, h1 {
+		line-height: 3.2rem; /* Required before viewport scaling support */
+		font-size: 3.8rem; /* Required before viewport scaling support */
+		/*line-height: 9.96vw; /* Borrow some space here */
+		/*font-size: 6.11vw; /* Required after fixed values */		
+		text-align: center;
+	}
+	#header h2, h2 {
+		line-height: 3.2rem; /* Required before viewport scaling support */
+		font-size: 2.0rem;	/* Required before viewport scaling support */
+		/*line-height: 6.11vw; /* Required after fixed values */		
+		/*font-size: 3.75vw; /* Required after fixed values */		
+	}
+	.thumbnail {
+		float: left;
+		margin: 0 1rem 0.3rem 0;
+	}
+	p {
+		line-height: 2.4rem; /* Required before viewport scaling support */
+		font-size: 1.63rem; /* Required before viewport scaling support */
+		/*line-height: 3.75vw; /* Values to scale in the viewport */
+		/*font-size: 2.3vw; /* Values scaled up by 1.36 = the golden ratio */
+		text-align: left;
+		padding: 1rem;
+	}
+	a {
+		position: relative;
+		text-decoration: none;
+	}	
+
+/******************* ResponsiveSlides.com ************************/
+
+	.rslides {
+		position: relative;
+		list-style: none;
+		overflow: hidden;
+		width: 100%; 
+	  }
+	
+	.rslides li {
+		-webkit-backface-visibility: hidden;
+		position: absolute;
+		display: none;
+		width: 100%;
+		left: 0;
+		top: 0;
+	  }
+	
+	.rslides li:first-child {
+		position: relative;
+		display: block;
+		float: left;
+	  }
+	
+	.rslides img {
+		display: block;
+		height: auto;
+		float: left;
+		width: 100%;
+		border: 0;
+	  }
+	
+	
+/******************* h3 ACCORDION ************************/
+	
+	.PostContent h3, .ac-container label {
+		font-size: 2.0rem;
+		font-weight: bold;
+		/* text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.8);  DEBUG */
+		background-color:#808080; /* background-color:grey; */
+		border-bottom: 1px solid darkgrey;
+		padding: 1rem;	/* Keep this here for what? */
+	}
+	
+	.ac-container input:checked + label {
+		background-color:#808080; /* background-color:grey; */
+	}
+
+	.ac-container {	
+/*
+-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit 
+-moz-box-sizing: border-box;    /* Firefox, other Gecko 
+box-sizing: border-box;         /* Opera/IE 8+
+*/
+		text-align: left;
+		/* Localise selection */
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		/* Removes janky highlight on touch */		
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		/* http://tympanus.net/Tutorials/CSS3Accordion/ */
+	}
+	.ac-container label {	
+		position: relative;
+		display: block;
+		cursor: pointer;
+		background-color: silver; /* DEBUG */
+		padding: 1rem; /* padding: 1rem 0 1rem 0;  TRouBLe */
+	}
+	.ac-container input:checked + label {
+		/* background-color: rgba(000, 000, 000, 0.1);  Styled the same as PostContent a:hover 
+		color: white;
+		*/		
+		-webkit-transition: 0.44s ease;
+		-moz-transition: 0.44s ease;
+		-o-transition: 0.44s ease;
+		-ms-transition: 0.44s ease;
+		transition: 0.44s ease;
+	}
+	
+	.ac-container label:after {
+		content: '◢'; /* Universal symbol */
+		position: absolute;
+		font-size: 0.8rem;
+		bottom: 1rem; /* px values, not the best */
+		right: 1rem;
+		vertical-align: bottom;
+		opacity: 0.4;
+	}
+	
+	.ac-container input{
+		display: block;
+		position: absolute;
+		z-index: 999;
+width:100%; /* HIT AREA needs better rollover declaration */
+		height: 3.8rem;	
+		opacity: 0; /* outline: 1px solid yellow; opacity: 1; */
+	}
+	
+	.ac-container label:hover {
+		cursor: pointer;
+		/* background-color:rgba(128,128,128,0.94);  Highlight element under pointer */
+		background-color:gainsboro; /*  Highlight element under pointer */
+		-webkit-transition: 0.2s ease;
+		-moz-transition: 0.2s ease;
+		-o-transition: 0.2s ease;
+		-ms-transition: 0.2s ease;
+		transition: 0.2s ease;
+	}
+
+	.ac-container article {
+		margin-top: 0;
+		overflow: hidden;
+		height: 0px;
+		position: relative;
+		-webkit-transition: 0.44s ease-in-out;
+		-moz-transition: 0.44s ease-in-out;
+		-o-transition: 0.44s ease-in-out;
+		-ms-transition: 0.44s ease-in-out;
+		transition: 0.44s ease-in-out;
+	}
+	.ac-container article p {
+	/* IS THIS APPROPRIATE?
+	Removes selection */	
+	-webkit-touch-callout: auto;
+	-webkit-user-select: auto;
+	-khtml-user-select: auto;
+	-moz-user-select: auto;
+	-ms-user-select: auto;
+	user-select: auto;
+	/* Removes janky highlight on touch */		
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
+	/*
+	padding: 1rem;
+	*/
+	}
+	.ac-container input:checked ~ article {
+	
+	}
+	/*
+	.ac-container input:checked ~ article.ac-xx-small{
+		height: 24rem;
+	}
+	.ac-container input:checked ~ article.ac-x-small{
+		height: 32rem;
+	}
+	.ac-container input:checked ~ article.ac-small{
+		height: 48rem;
+	}
+	.ac-container input:checked ~ article.ac-medium{
+		height: 56rem;
+	}
+	.ac-container input:checked ~ article.ac-large{
+		height: 64rem;
+	}
+	.ac-container input:checked ~ article.ac-x-large{
+		height: 72rem;
+	}
+	.ac-container input:checked ~ article.ac-xx-large{
+		height: 84rem;
+	}
+	*/
+	.ac-container input:checked ~ article.ac-infinite{
+		/*
+		height: 36rem!important;
+		height: 100%!important;
+		*/
+		height: auto;
+	}
+	.ac-container { /* Translating element */
+		-webkit-backface-visibility: hidden;
+		cursor: pointer; 
+	}
+
+/*
+Breakpoints:
+http://nmsdvid.com/snippets/
+http://stephen.io/mediaqueries/
+*/
+
+/* Mobile, iPhone Portrait 
+and (max-device-width : 568px)
+*/
+@media only screen 
+and (min-device-width : 320px)
+and (max-device-width : 720px)
+and (orientation : portrait) {
+	.bx-wrapper .bx-next, .bx-wrapper .bx-prev { opacity: 0!important; }
+	#footer {
+		z-index: 99999; /* Always-on-top! */
+		position: relative;  /* z-index needs anchor position */
+		margin-top: -98px; /* Fallback negative value of footer */
+		height: 98px; /* ACTUAL height as the footer */
+		clear:both;	
+	} 
+	#nav a, #call-to-action-nav ul li a {
+		font-size: 1rem;
+		height: 98px; /* Based on iOS7 UI decision to limit viewport interactivity */		
+	}	
+	#call-to-action-head {
+		padding: 0.5rem 0 0 0; /* top, right, bottom, left */
+	}
+
+	#call-to-action-head ul li a {
+		font-size: 1rem;
+	}			
+	#call-to-action-nav {
+		display: none; /* Remove DOM elements */
+	}
+	.common-items {
+		width: 100%;
+		height: 98px; /* Rem? SAME AS FOOTER */
+	}
+	.common-items ul li {
+		display:inline-block;
+		width: 20%;
+	}
+
+	.PostContent {
+/* shortcode & vh req: dustindiaz.com/css-shorthand/ */
+		top:4rem; /* rem? FIXED GOAL POST: A LITTLE BOX */
+		height:67%;/* Fallback */
+		max-height:calc(90% - 1.2rem);/* FIXED GOAL POST - SHOULD not be: 232px */
+		width:100%; /* fit to iPhone width */
+		margin-right: -50%; /* adjust to iPhone width */
+	}
+	#header h1, h1 {
+		line-height: 1.63rem!important; /* Borrow some space here */
+		font-size:1.63rem!important; 
+	}
+	#header h2, h2 {
+		line-height: 1.63rem!important;
+		font-size: 1rem!important;
+	}
+	.PostContent h3, .ac-container label {
+		line-height: 1.63rem!important;
+		font-size: 1rem!important;
+		padding: 0.5rem;
+	}
+	.ac-container label:after {
+		font-size: 0.5rem; /* Tweak */
+		bottom: 0.1rem; /* Tweak */
+	}
+	.thumbnail {
+		width: 9rem;
+	}
+	p {
+		line-height: 1.63rem!important;
+		font-size: 1rem!important; /* Values scaled up by 1.36 = the golden ratio */
+	}
+	
+	#strapline {
+		font-size: 1rem; /* this is scaled to fix 320px */		
+	}
+
+}
+
+/* Mobile, Landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 720px)
+and (orientation : landscape) {
+	.bx-wrapper .bx-next, .bx-prev { opacity: 0!important; }
+	#footer {
+		display: none !important;
+		/* Best fix for iOS6 UI? 
+		• Hide the motherfucker: http://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/
+		• http://stackoverflow.com/questions/13149371/hide-address-bar-for-safari-on-ios-6
+		• http://stackoverflow.com/questions/11129887/stop-iphone-safari-address-bar-from-showing-when-changing-pages */
+		z-index: 99999; /* Always-on-top! */
+		position: relative;  /* z-index needs anchor position */
+		margin-top: -98px; /* Fallback negative value of footer */
+		height: 98px; /* ACTUAL height as the footer */
+		clear:both;	
+	}
+	#call-to-action-head {
+		height: 0px; /* shrinks the content for debugging */
+		display: none; /* accessibility: removes DOM elements */
+	}
+	#header {
+		height: 0px; /* shrinks the content for debugging */
+		display: none; /* accessibility: removes DOM elements */
+	}
+	.PostContent {
+		top: 0; /* SMALL DISPLAY ONLY */
+		/* max-height:calc(90% - 1rem); FIXED GOAL POST - SHOULD not be: 232px */		
+		width:100%; /* fit to iPhone width */
+		margin-right: -50%; /* adjust to iPhone width */
+		height:100vh; /* fit to height */	
+	}
+	.thumbnail {
+		width: 15rem;
+	}
+	#nav a, #call-to-action-nav ul li a {
+		font-size: 1rem;
+		line-height: 3.5rem;
+		height: 98px; /* Based on iOS7 UI decision to limit viewport interactivity */		
+	}
+#nav a:hover{
+-webkit-tap-highlight-color: rgba(0,0,0,0); /* CALLOUT NONE! */
+}
+}
+/* Tablet, Portrait */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	#header {
+		visibility: visible;
+	}
+	.PostContent {
+		/* shortcode & vh req: dustindiaz.com/css-shorthand/ */
+		top:4rem; /* rem? FIXED GOAL POST: A LITTLE BOX */
+		height:67%;/* Fallback */
+		max-height:calc(90% - 0.5rem - 142px);/* FIXED GOAL POST */
+	
+		right:50%; /* FIXED GOAL POST */
+		width: 38rem; /* FIXED GOAL POST */
+		margin-right: -19rem; /* FIXED GOAL POST */
+	}
+.thumbnail {
+	width: 15rem;
+}
+	#footer {
+		z-index: 99999; /* Always-on-top! */
+		position: relative;  /* z-index needs anchor position */
+		margin-top: -142px; /* Fallback negative value of footer */
+		height: 142px; /* ACTUAL height as the footer */
+		clear:both;	
+	} 
+	#nav a, #call-to-action-nav ul li a {
+		font-size: 1.63rem;
+		line-height: 7rem;
+		height: 142px; /* Based on iOS7 UI decision to limit viewport interactivity */
+	}
+	#call-to-action-nav {
+		display: none; /* Remove DOM elements */
+	}
+	.common-items {
+		width: 100%;
+	}	
+}
+
+/* Tablet, Landscape */
+/* What should max-device-width : be? 1024pxhttp://stackoverflow.com/questions/11675084/media-queries-to-target-high-resolution-dense-pixel-devices
+*/
+@media only screen 
+and (min-device-width : 768px)
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+	#call-to-action-head {
+		height: 0px; /* shrinks the content for debugging */
+		display: none; /* accessibility: removes DOM elements */
+	}
+	#header {
+		display: inline; /* adds back into the DOM */
+		visibility: visible;
+	}
+	.PostContent {		
+		/* shortcode & vh req: dustindiaz.com/css-shorthand/ */
+		top:4rem; /* rem? FIXED GOAL POST: A LITTLE BOX */
+		height:67%;/* Fallback */
+		max-height:calc(90% - 142px);/* FIXED GOAL POST */
+		right:50%; /* FIXED GOAL POST */
+		width: 38rem; /* FIXED GOAL POST */
+		margin-right: -19rem; /* FIXED GOAL POST */
+	}
+.thumbnail {
+	width: 15rem;
+}
+	#footer {
+		position: relative; /* z-index needs anchor position */
+		z-index: 99999; /* Always-on-top! */
+		margin-top: -142px; /* Fallback negative value of footer */
+		height: 142px; /* ACTUAL height as the footer */
+		clear:both;	
+	} 
+	#nav a, #call-to-action-nav ul li a {
+		font-size: 1.63rem;
+		line-height: 7rem;
+		height: 142px; /* Based on iOS7 UI decision to limit viewport interactivity */		
+	}
+}
+
+/* Desktop */
+@media all
+and (min-device-width : 1024px) {
+	#header {
+		visibility: visible;
+	}
+	#multi-tool {
+		min-width:38rem;/* Fixes horizontal overflow glitch */
+	}
+	.PostContent {
+		/* shortcode & vh req: dustindiaz.com/css-shorthand/ */
+		top:4rem; /* rem? FIXED GOAL POST: A LITTLE BOX */
+		height:67%;/* Fallback */
+		max-height:calc(90% - 0.5rem - 142px);/* FIXED GOAL POST */
+		right:50%;
+		width: 38rem; /* width: 74vw; requires fixed values */
+		margin-right: -19rem; /* margin-right: -37vw; requires fixed values */
+	}
+	.thumbnail {
+		width: 12.7rem!important;
+	}
+	#footer {
+		z-index: 99999; /* Always-on-top! */
+		position: relative; /* z-index needs anchor position */
+		margin-top: -142px; /* Fallback negative value of footer */
+		height: 142px; /* ACTUAL height as the footer */
+		clear:both;	
+	} 
+	#nav a, #call-to-action-nav ul li a {
+		font-size: 1.63rem;
+		line-height: 7rem;
+		height: 142px; /* Based on iOS7 UI decision to limit viewport interactivity */		
+	}
+	#call-to-action-head {
+		display: none; /* Remove DOM elements */
+	}
+	.ac-container input {
+width: 38rem; /* HIT AREA rollover declaration DEBUG */
+height: 4.5rem; /* DEBUG: outline: 1px solid red!important; */
+	}
+}
+
+
+	/* Maintain browser compatibility: */	
+	* {margin:0;padding:0;} 
+
+	.PostContent {
+		position:absolute;
+		z-index: 88888!important;
+		-webkit-overflow-scrolling:touch;
+		}/* z-index here to affect parent */
+
+	html, body{height:100%}
+	carousel{height:100vh; overflow: hidden;}
+	
+	/* BELOW: jquery.bxslider.min.css */	
+	
+	.bx-wrapper {
+	height: 100%;
+	min-height: 100%!important;
+		*zoom: 1;
+		/* height: 333px!important; */
+	}
+	
+	.bx-wrapper img {
+		max-width: 100%;
+		display: block;
+	}
+	
+	.bx-next, .bx-prev, .bx-next:hover, .bx-prev:hover {
+		position: absolute;
+		padding: 1rem;
+		display: block;
+		top: 50%;
+		font-size: 2rem;
+	}
+	
+	.bx-next {float: right; right: 0;}
+	.bx-next:before {content: '';} /* DEBUGGING: ► */
+	.bx-prev {float: left; left: 0;}
+	.bx-prev:before {content: '';} /* DEBUGGING: ◄ */
+	
+	/* LOADER */
+	
+	.bx-wrapper .bx-loading {
+		position: absolute;
+		z-index: 99999;
+		min-height: 50px;
+		background: url(../images/bx_loader.gif) center center no-repeat #232323;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+	
+	/* PAGER */
+	
+	.bx-wrapper .bx-pager {
+		text-align: center;
+		font-size: .85em;
+		font-family: sans-serif;
+		font-weight: bold;
+		color: #666;
+		padding-top: 20px;
+	}
+	
+	.bx-wrapper .bx-pager .bx-pager-item,
+	.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+		display: inline-block;
+		*zoom: 1;
+		*display: inline;
+	}
+	
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		background: #666;
+		text-indent: -9999px;
+		display: block;
+		width: 10px;
+		height: 10px;
+		margin: 0 5px;
+		outline: 0;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+	}
+	
+	.bx-wrapper .bx-pager.bx-default-pager a:hover,
+	.bx-wrapper .bx-pager.bx-default-pager a.active {
+		background: #000;
+	}
