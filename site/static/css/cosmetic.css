@@ -1,14 +1,14 @@
 body {
 /*
 background-color: black;
--khtml-opacity:.70; 
--moz-opacity:.70; 
+-khtml-opacity:.70;
+-moz-opacity:.70;
 -ms-filter:"alpha(opacity=70)";
  filter:alpha(opacity=70);
  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.7);
- opacity:.70; 
+ opacity:.70;
 Becasue these don't work: http://caniuse.com/css-gradients */
-		background: url('../images/_cover.jpg')no-repeat center center fixed;
+		background: url('https://greekfoods.co.uk/images/_cover.jpg')no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -16,7 +16,7 @@ Becasue these don't work: http://caniuse.com/css-gradients */
 		overflow: hidden;
 		/* -webkit-backface-visibility: visible!important; */
 	}
-	
+
 	#wrap {
 
 	}
@@ -53,7 +53,7 @@ Becasue these don't work: http://caniuse.com/css-gradients */
 
 .welcome h1 {
 	font-size: 3.9rem;
-	font-weight: normal;	
+	font-weight: normal;
 	text-decoration: underline;
 	line-height: 2.9rem;
 }
@@ -66,9 +66,9 @@ Becasue these don't work: http://caniuse.com/css-gradients */
 /* Removed #multi-tool */
 
 	.PostContent {
-		color: #505050;	
-		background-color: rgba(244,237,207,0.8); /* Transparent */	
-		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);	
+		color: #505050;
+		background-color: rgba(244,237,207,0.8); /* Transparent */
+		text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.8);
 		font-family: Verdana, Geneva, sans-serif;
 		font-weight: normal;
 		font-style: normal;
@@ -78,7 +78,7 @@ Becasue these don't work: http://caniuse.com/css-gradients */
 height: -moz-calc(768px - 18rem);
 height: -webkit-calc(768px - 18rem);
 height: -o-calc(768px - 18rem);
-height: calc(768px - 18rem);	
+height: calc(768px - 18rem);
 
 	}
 	.thumbnail {
@@ -123,8 +123,8 @@ transition: 0.33s ease;
 		background-color: rgba(244,237,207,0.8); /* Transparent */
 		padding: 1rem;
 		line-height: 2rem;
-	}		
-	
+	}
+
 	.PostContent a:hover {
 		color: #000;
 		background-color:#f4edcf; /* Lemon banner */
@@ -138,42 +138,42 @@ transition: 0.33s ease;
 		box-shadow: 0px 2px 2px rgba(000, 000, 000, 0.6);
 	}
 
-	
+
 	#nav a, #call-to-action-head{
 		font-family: 'mercurydisplay_bold_sc', Serif; /* Mercury-DisplayBoldSC */
 		text-decoration: none; /* Object oriented CSS */
-		text-shadow: 0px 2px 2px rgba(000, 000, 000, 0.8);	
+		text-shadow: 0px 2px 2px rgba(000, 000, 000, 0.8);
 	}
 
 	.common-items ul li a.active {
 		opacity: 1; /* Replces default colour scheme */
-		overflow-style: none;		
+		overflow-style: none;
 	}
-	
+
 	#call-to-action-nav a{
 		line-height: 7rem;
 	}
 
 	#call-to-action-nav {
 		background-color: #282828;
-		width: 30%;		
+		width: 30%;
 	}
 
 	/* Colourise & Stylise Strapline */
 	#strapline {
-		font-family: 'mercurydisplay_bold_sc', Serif; /* Mercury-DisplayBoldSC */ 
+		font-family: 'mercurydisplay_bold_sc', Serif; /* Mercury-DisplayBoldSC */
 		font-weight: normal;
 		font-style: normal;
 		color: white;
 		text-shadow: 0px 1px 0px rgba(000, 000, 000, 1);
 	}
-	
+
 /**********************************************************************/
 
 /* Mobile, iPhone Portrait */
 /* Needs debugging: 480px */
-@media only screen 
-and (min-device-width : 320px) 
+@media only screen
+and (min-device-width : 320px)
 and (max-device-width : 720px)
 and (orientation : portrait) {
 	#nav a, #call-to-action-nav ul li a {
@@ -190,7 +190,7 @@ and (orientation : portrait) {
 
 	#call-to-action-head {
 		padding: 0;
-		padding-top: 10px;		
+		padding-top: 10px;
 	}
 	.PostContent {
 		/* Firefox */
@@ -200,34 +200,34 @@ and (orientation : portrait) {
 		/* Opera */
 		height: -o-calc(568px - 12rem);
 		/* Standard height: */
-		height: calc(568px - 12rem);		
+		height: calc(568px - 12rem);
 	}
 	/* Colourise & Stylise Strapline */
 	#strapline {
 		font-size: 1.0rem!important;
 		letter-spacing: 0.0125em!important; /* 27px gutter */
-	}	
+	}
 	.welcome h1 {
 		font-size: 2rem!important;
 		letter-spacing: 0.0125em!important; /* 27px gutter */
 	}
-	
+
 	.welcome h2 {
 		font-size: 1.0rem!important;
 		letter-spacing: 0.0125em!important; /* 27px gutter */
-	}	
+	}
 
 }
 
 /* Mobile, Landscape */
-@media only screen 
+@media only screen
 and (min-device-width : 320px)
 and (max-device-width : 720px)
 and (orientation : landscape) {
 	.PostContent {
 		top: 0; /* SMALL DISPLAY ONLY */
 		max-height:100%;/* Consider moving */
-		height:100vh;/* Consider moving */			
+		height:100vh;/* Consider moving */
 	}
 	#nav a, #call-to-action-nav ul li a {
 		height: 98px;
@@ -238,15 +238,15 @@ and (orientation : landscape) {
 	.welcome h1 {
 		font-size: 3.4rem!important;
 	}
-	
+
 	.welcome h2 {
 		font-size: 1.68rem!important;
 	}
 }
 /* Tablet, Portrait */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : portrait) {
 	.PostContent {
 		top: 8rem;
@@ -257,7 +257,7 @@ and (orientation : portrait) {
 		/* Opera */
 		height: -o-calc(768px - 9rem);
 		/* Standard height: */
-		height: calc(768px - 9rem);		
+		height: calc(768px - 9rem);
 	}
 	.welcome {
 		padding-top: 1.66; /* outline: 1px dashed red!important; */
@@ -269,14 +269,14 @@ and (orientation : portrait) {
 	}
 	#call-to-action-nav ul li a {
 		line-height: 7rem;
-	}	
-	
+	}
+
 }
 
 /* Tablet, Landscape */
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : landscape) {
 	.PostContent {
 		top: calc(50% - 13rem); /* 3rem; */
@@ -287,12 +287,12 @@ and (orientation : landscape) {
 		/* Opera */
 		height: -o-calc(768px - 8rem);
 		/* Standard height: */
-		height: calc(768px - 8rem);		
+		height: calc(768px - 8rem);
 	}
 	#call-to-action-nav ul li a {
 		line-height: 7rem;
-		height: 142px; /* Restore height */		
-	}	
+		height: 142px; /* Restore height */
+	}
 }
 
 /* Desktop */
@@ -307,6 +307,6 @@ and (min-device-width : 1024px) {
 	}
 }
 /* Remove arrows */
-	.bx-wrapper .bx-next, .bx-prev { opacity: 0!important; 
+	.bx-wrapper .bx-next, .bx-prev { opacity: 0!important;
 	top: -99999px;
 	}
