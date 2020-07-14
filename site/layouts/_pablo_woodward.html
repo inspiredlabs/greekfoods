@@ -1,0 +1,52 @@
+{{ partial "head.html" . }}
+<body class="w-100 h-100 ma0 pa0 overflow-hidden backface-hidden no-clutter charcoal system cover photo">
+  {{ partial "svg.html" . }}
+  <!-- Consider componentisation -->
+  {{ partial "horizontalNav.html" . }}
+  <div id=carousel class="carousel fixed h-100 w-100 top-0 left-0">
+    {{ $current := .Params.Name }}
+    {{ range .Pages.ByWeight }}
+
+    {{/* .Render */}}
+
+    <section class="carousel-cell scrollable {{/* if eq .Params.Name $current.Params.Name }} is-selected {{ end */}}"
+      id="{{ .Params.name | lower | urlize }}">
+      <div class="h-100 overflow-y-scroll touch-scrolling">
+        <article class="w-100 mt5 mb7 highlight pr3 pl3">
+
+          {{/*<!--header class="post-header">
+						<a id="blog-logo" href="{{ .Site.BaseURL}}">
+          {{ if .Site.Params.logo }}
+          <a id="blog-logo" href="{{ .Site.BaseURL}}"><img src="{{ .Site.Params.logo }}" alt="Blog Logo" /></a>
+          {{else}}
+          {{ .Site.Title }}
+          {{ end }}
+          </a>
+          </header-->*/}}
+          <!--h1 class="post-title">{{ .Title }}</h1-->
+
+          <div class="pa2 w-100 pa3-ns w-90-ns pa3-m w-70-m pa4-l w-60-l mr-auto ml-auto bg-beige">
+          <section class="measure f3 lh-copy pt3">
+            {{ .Content }}
+            <span class="h7 disable-scrolling"></span>
+          </section>
+          </div>
+
+          <!--footer class="post-footer">
+						
+						{{ if .Site.Author }}
+						<section class="author">
+							<h4>{{ .Site.Author.name}}</h4>
+							<p>{{ .Site.Author.bio }}</p>
+						</section>
+						{{ end }}
+						
+						</footer-->
+        </article>
+      </div>
+    </section>
+    {{ end }}
+  </div>
+  {{ partial "script.html" . }}
+</body>
+</html>

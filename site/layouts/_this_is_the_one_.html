@@ -1,0 +1,5590 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest.appcache">
+<!--http://grinninggecko.com/2011/02/24/developing-cross-platform-html5-offline-app-1/ -->
+<!--This project has been lovingly scripted by Scott Phillips, in the world's nicest independent cafes. Special thanks to each and every one who has contributed in every way. -->
+<head>
+	<!--meta http-equiv="refresh" content="3; url=tel:+442084496832" /> Autodial after 3 seconds -->
+	<meta charset="utf-8" />
+	<title>Greek Foods - G. Miliotis</title>
+	<meta name="description" content="
+	A London based Family Business we have been supplying the finest food the Mediterranean has to offer for over 30 years. Our red vans have been driven hundreds of thousands of miles bringing the chefs, caterers, restaurateurs, sandwich makers, and deli owners what we believe to be  our special service.
+
+	Fresh, never frozen
+	We supply wholesale, retail, and wedding events with hummus, olives, oils, pestos,vinegars & breads,seafoods, vegetables &tomato dishes,  crudit&eacute; & a selection ofcakes & patisseries. Suppling the south of England South West of London, Oxford & Leicester.
+
+	Variations
+	Catering to special dietary needs is a substantial part of our service. We supply savory and sweet food for people with allergies and intolerances, such as vegetarian, vegan and gluten free products.
+
+	This online brochure contains our complete range of produce. We regularly have seasonal specials and can keep you up-dated with variations, so check our price list* or call us for more information. *Price list subject to changes.
+
+	InstantWebapp by InspiredLabs.co.uk" />
+
+	<!-- 1.8.3 ONLY (Z-fighting bug) -->
+	<script src="lib/compilation.js"></script>
+	<script src="lib/fastclick.js"></script>
+	<script src="lib/responsiveslides.min.js"></script>
+
+	<!--script type="text/javascript">
+		var cacheStatusValues = [];
+		cacheStatusValues[0] = 'uncached';
+		cacheStatusValues[1] = 'idle';
+		cacheStatusValues[2] = 'checking';
+		cacheStatusValues[3] = 'downloading';
+		cacheStatusValues[4] = 'updateready';
+		cacheStatusValues[5] = 'obsolete';
+
+		var cache = window.applicationCache;
+		cache.addEventListener('cached', logEvent, false);
+		cache.addEventListener('checking', logEvent, false);
+		cache.addEventListener('downloading', logEvent, false);
+		cache.addEventListener('error', logEvent, false);
+		cache.addEventListener('noupdate', logEvent, false);
+		cache.addEventListener('obsolete', logEvent, false);
+		cache.addEventListener('progress', logEvent, false);
+		cache.addEventListener('updateready', logEvent, false);
+
+		function logEvent(e) {
+		    var online, status, type, message;
+		    online = (navigator.onLine) ? 'yes' : 'no';
+		    status = cacheStatusValues[cache.status];
+		    type = e.type;
+		    message = 'online: ' + online;
+		    message+= ', event: ' + type;
+		    message+= ', status: ' + status;
+		    if (type == 'error' && navigator.onLine) {
+		        message+= ' (prolly a syntax error in manifest)';
+		    }
+		    console.log(message);
+		}
+
+		window.applicationCache.addEventListener(
+		    'updateready',
+		    function(){
+		        window.applicationCache.swapCache();
+		        console.log('swap cache has been called');
+		    },
+		    false
+		);
+
+		setInterval(function(){cache.update()}, 10000);
+	</script-->
+
+	<!-- Generic Icons -->
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="image_src" href="favicon.png" />
+
+	<!-- Precomposed iOS icons -->
+	<link rel="apple-touch-icon-precomposed" href="favicon.png" />
+	<link rel="apple-touch-icon" href="favicon.png">
+
+	<!-- Mobile -->
+	<meta name="apple-mobile-web-app-title" content="Greek Foods">
+	<meta name="MobileOptimized" content="width" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<!-- Layout -->
+	<link href="css/layout.css" media="all" rel="stylesheet" type="text/css"><!-- Core Layout -->
+	<link href="css/cosmetic.css" media="all" rel="stylesheet" type="text/css"><!-- Branding -->
+	<!-- href="css/addtohomescreen.css" link rel="stylesheet" type="text/css"><!-- ATH -->
+	<!-- script src="lib/addtohomescreen.js"></script-->
+
+
+	<!-- iPhone -- >
+	<link href="images/apple-touch-startup-320x460.png"
+	      media="(device-width: 320px)"
+	      rel="apple-touch-startup-image">
+	<!-- iPhone (Retina) -- >
+	<link href="images/apple-touch-startup-640x920.png"
+	      media="(device-width: 320px)
+	         and (-webkit-device-pixel-ratio: 2)"
+	      rel="apple-touch-startup-image">
+	<!-- iPad (portrait) -- >
+	<link href="images/apple-touch-startup-768x1004.png"
+	      media="(device-width: 768px)
+	         and (orientation: portrait)"
+	      rel="apple-touch-startup-image">
+	<!-- iPad (landscape) -- >
+	<link href="images/apple-touch-startup-748x1024.png"
+	      media="(device-width: 768px)
+	         and (orientation: landscape)"
+	      rel="apple-touch-startup-image">
+	<!-- iPad (Retina, portrait) -- >
+	<link href="images/apple-touch-startup-1536x2008.png"
+	      media="(device-width: 768px)
+	         and (orientation: portrait)
+	         and (-webkit-device-pixel-ratio: 2)"
+	      rel="apple-touch-startup-image">
+	<!-- iPad (Retina, landscape) -- >
+	<link href="images/apple-touch-startup-1496x2048.png"
+	      media="(device-width: 768px)
+	         and (orientation: landscape)
+	         and (-webkit-device-pixel-ratio: 2)"
+	      rel="apple-touch-startup-image">
+
+
+	<!-- iphone start up screens
+	<script type="application/javascript">
+	    var appl = document.createElement("link");
+	    appl.setAttribute('rel', 'apple-touch-startup-image');
+	    if(screen.width < 321 && window.devicePixelRatio == 1) {
+	      appl.setAttribute('href', 'img/icons/launch320x460.png'); //iphone 3Gs or below
+	    } else if (screen.width < 321 && window.devicePixelRatio == 2) {
+	      //setting @2x or a 640x920 image fails, just use the iphone splash screen
+	    } else if (screen.width < 769 && Math.abs(window.orientation) != 90) {
+	      appl.setAttribute('href', 'img/icons/launch1024x748.png'); //ipad 2 or below (portait)
+	    } else if (screen.width < 769 && Math.abs(window.orientation) == 90) {
+	      //landscape fails as well, use standard ipad screen
+	    }
+	    document.getElementsByTagName("head")[0].appendChild(appl);
+	</script-->
+
+
+
+<!-- *********************** CLEAN THIS UP ************************ -->
+
+<style>
+	#carousel {position: absolute; top: 0; right: 0; bottom: 0; left: 0;  /* background: transparent; */}
+</style>
+
+<style>
+
+#price-list {
+
+		width: 100%;
+
+		text-align: left;
+
+		border-collapse: collapse;
+
+	}
+
+#price-list th {
+
+		padding: 0.5rem;
+
+		font-weight: bold;
+
+		background: rgba(244,237,207,0.6); /* Lemon */
+
+		/* border-bottom: 1px solid #fff; */
+
+	}
+
+#price-list th .item-description {
+
+		width: 80%;
+
+	}
+
+#price-list th .volume, .price {
+
+		width: 10%;
+
+	}
+
+#price-list td {
+
+		padding: 0.5rem;
+
+		background-color: rgba(244,237,207,0.4); /* Transparent */
+
+		border-top: 1px solid #f4edcf;
+
+}
+
+#price-list tr:hover td {
+		background: rgba(244,237,207,0.8); /* Lemon /* NEEDS TRANSITION TO BE SIMILAR */
+	}
+
+</style>
+
+<!-- Matomo -->
+<script type="text/javascript">var _paq = window._paq || []; _paq.push(["trackPageView"]), _paq.push(["enableLinkTracking"]), function () { var e = "//analytics.inspiredlabs.co.uk/"; _paq.push(["setTrackerUrl", e + "matomo.php"]), _paq.push(["setSiteId", "2"]); var a = document, t = a.createElement("script"), p = a.getElementsByTagName("script")[0]; t.type = "text/javascript", t.async = !0, t.defer = !0, t.src = e + "matomo.js", p.parentNode.insertBefore(t, p) }();
+</script><noscript><img src="//analytics.inspiredlabs.co.uk/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></noscript><!-- /Matomo -->
+
+<!-- COMPATIBILITY -->
+<!--[if !IE 7]><style type="text/css">#wrap {display:table;height:100%}</style><![endif]-->
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+</head>
+<body>
+<div id="wrap">
+	<div id="call-to-action-head">
+		<ul>
+			<li id="blue"><a href="tel:+442084496832" cm_dontconvertlink>Office &#8470;</a></li><!-- :before ? -->
+			<li id="green"><a href="tel:+447831364905" cm_dontconvertlink>Mobile &#8470;</a></li><!-- :before ? -->
+		</ul>
+	</div><!-- Close id="call-to-action-head" -->
+</div><!-- Close id="wrap" -->
+
+<div id="footer"><div id="strapline">&nbsp;</div><!-- Always. -->
+	<div id="nav">
+		<div id="call-to-action-nav">
+			<ul>
+				<li id="blue" tabindex="0"><a href="tel:+442084496832" cm_dontconvertlink>Office 02084&nbsp;496&nbsp;832</a></li>
+				<li id="green" tabindex="1"><a href="tel:+447831364905" cm_dontconvertlink>Mobile 078313&nbsp;364&nbsp;905</a></li>
+			</ul>
+		</div>
+		<div class="common-items"><!-- Derived from WP categories. -->
+			<ul>
+				<li ><a data-slide-index="0" tabindex="2">Welcome</a></li>
+				<li ><a data-slide-index="1" tabindex="3">History</a></li>
+				<li ><a data-slide-index="2" tabindex="4">Foods</a></li>
+				<li style="letter-spacing: -0.3px;"><a data-slide-index="3" >Variations</a></li>
+				<li ><a data-slide-index="4" tabindex="5">Prices</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- Close id="footer" -->
+
+<div id="carousel">
+	<ul class="bxslider">
+
+		<li id="multi-tool"><!-- z-index required on child element -->
+			<div class="PostContent">
+					<div class="welcome" style="z-index: 9999999;">
+						<h1 >G.&nbsp;Miliotis&nbsp;&amp;&nbsp;Son</h1>
+						<h2>Wholesale&nbsp;Mediterranean Foods</h2>
+					</div><!-- class="welcome" -->
+					<!-- rSlides -->
+					<ul class="rslides" id="slider1">
+						<li><img src="images/rslide-02.jpg" alt=""></li>
+						<li><img src="images/rslide-03.jpg" alt=""></li>
+						<li><img src="images/rslide-04.jpg" alt=""></li>
+						<li><img src="images/rslide-05.jpg" alt=""></li>
+						<li><img src="images/rslide-06.jpg" alt=""></li>
+						<li><img src="images/rslide-07.jpg" alt=""></li>
+					</ul>
+			</div>
+		</li>
+
+		<li id="multi-tool"><!-- z-index required on child element -->
+			<div class="PostContent">
+				<h3>A London based family business</h3>
+				<p>
+				<img src="images/rslide-george-miliotis.jpg" alt="A picture of a young George Miliotis" class="thumbnail"></img> George Miliotis has been supplying England with traditional greek foods for over 30 years and like any good tradition, George Miliotis &amp; Son still continue to supply the finest food the Mediterranean has to offer. Our red vans have been driven hundreds of thousands of miles bringing the chefs, caterers, deli owners, sandwich makers, &amp; restaurateurs what we believe to be our special service.</p>
+				<p><strong>Find out more &amp; explore our app.</strong></p>
+				<div class="overscroll"></div><!-- Universal -->
+			</div>
+		</li>
+
+		<li id="multi-tool"><!-- z-index required on child element -->
+			<div class="PostContent">
+				<h3>Fresh never frozen</h3>
+				<p><strong>From our London premises we supply</strong> wholesale &amp; retail to the south of England as far as Birmingham, Leicester &amp; around Oxfordshire.</p>
+				<p><strong>Products include, but are not limited to</strong> extra virgin olive oil, dips, cheeses, pestos, breads, marinated vegetables, crudit&eacute; &amp; a patisserie &amp; cake selection.</p>
+				<p>We also have special dietary variations for people with allergies and intolerances.</p>
+				<p><a href="mailto:mel@georgemiliotis.co.uk?subject=We've seen your app…" id="email" tabindex="6">Contact us for samples.</a></p>
+				<div class="overscroll"></div><!-- Universal -->
+			</div>
+		</li>
+
+		<li id="multi-tool"><!-- z-index required on child element -->
+			<div class="PostContent"><!-- TRANSFORM INTO A CLASS -->
+				<h3>Variations</h3>
+				<p>Catering to special dietary needs is a substantial part of our service. We supply savoury and sweet food for people with allergies and intolerances, such as vegetarian, vegan and gluten free products.</p>
+				<!--p><a href="george-miliotis-brochure.pdf" Title="George Miliotis Brochure" id="pdf" >Download our brochure*</a></p-->
+				<p>This online brochure contains our complete range of produce. We regularly have seasonal specials and can keep you up-dated with variations, so check our price list* or call us for more information.</p>
+				<p><strong>*Price list subject to changes.</strong></p>
+				<div class="overscroll"></div><!-- Universal -->
+			</div>
+		</li>
+		<li id="multi-tool"><!-- z-index required on child element -->
+			<div class="PostContent" >
+			<!--h3>Price List</h3>
+				<p>Our prices are competitive and we can usually help if you need to make special delivery arrangements.</p>
+				<p><strong>Thank you for your custom.</strong>
+				<br>
+			</p-->
+				<section class="ac-container">
+					<div>
+						<input id="ac-1" name="accordion-1" type="checkbox" tabindex="7" checked/>
+						<label for="ac-1">Dips &amp; Sauces</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+						    	<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+							  <tbody>
+							  		<tr>
+							  			<td>
+							  				HOUMOUS
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;7.50
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				AVOCADO WITH HOUMOUS
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;11.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				LEMON &amp; CORIANDER HOUMOUS
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;9.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				RED PEPPER HOUMOUS
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;9.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				CHUNKY VEGETABLE HOUMOUS
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;9.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				TARAMASALATA
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;7.50
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				TSATZIKI (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;10.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				GUACAMOLE (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;11.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				AUBERGINE DIP (V)
+							  			</td>
+							  			<td>
+							  				1.0KG
+							  			</td>
+							  			<td>
+							  				&pound;6.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				FRESH SALSA (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;8.50
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				FELAFEL (V)
+							  			</td>
+							  			<td>
+							  				X40
+							  			</td>
+							  			<td>
+							  				&pound;9.50
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				FRESH DOLMAS (V)
+							  			</td>
+							  			<td>
+							  				X60
+							  			</td>
+							  			<td>
+							  				&pound;12.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				COUS-COUS SALAD (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;9.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				CHICK PEA SALAD (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;8.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				THREE BEAN SALAD (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;8.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				TABOULI SALAD (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;8.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				PUY LENTILS &amp; COUS-COUS (V)
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;9.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				EDAMAME BEANS WITH CHEESE
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;8.00
+							  			</td>
+							  		</tr>
+							  		<tr>
+							  			<td>
+							  				QUINOA
+							  			</td>
+							  			<td>
+							  				2.0KG
+							  			</td>
+							  			<td>
+							  				&pound;9.00
+							  			</td>
+							  		</tr>
+							  	</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-2" name="accordion-2" type="checkbox" tabindex="8" />
+						<label for="ac-2">Small Pots</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+							    	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+							        <th scope="col" class="volume" style="width: 10%;">Volume</th>
+							        <th scope="col" class="price" style="width: 10%;">Price</th>
+							    </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												QUINOA
+
+										</td>
+										<td>
+
+												190G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												HOUMOUS (V)
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CARROT HOUMOUS
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LOW FAT HOUMOUS
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RED PEPPER HOUMOUS
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BLACK OLIVE HOUMOUS
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												AVOCADO WITH HOUMOUS (V)
+
+										</td>
+										<td>
+
+												150G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TARAMASALATA
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TABOULI SALAD (V)
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TSATZIKI (V)
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GUACAMOLE (V)
+
+										</td>
+										<td>
+
+												150G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRESH SALSA (V)
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FELAFEL
+
+										</td>
+										<td>
+
+												150G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TOMATO &amp; FETA SALAD
+
+										</td>
+										<td>
+
+												180G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHICK PEA SALAD
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SUN BLUSHED TOMATOES
+
+										</td>
+										<td>
+
+												150G
+
+										</td>
+										<td>
+
+												&pound;1.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LENTIL SALAD
+
+										</td>
+										<td>
+
+												220G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RED PEPPER SALAD
+
+										</td>
+										<td>
+
+												170G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RED KIDNEY BEAN &amp; CRACKED WHEAT SALAD
+
+										</td>
+										<td>
+
+												200G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RED PEPPERS STUFFED
+
+										</td>
+										<td>
+
+												160G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												COLESLAW
+
+										</td>
+										<td>
+
+												220G
+
+										</td>
+										<td>
+
+												&pound;0.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												DOLMADES
+
+										</td>
+										<td>
+
+												150G
+
+										</td>
+										<td>
+
+												&pound;1.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+					<input id="ac-3" name="accordion-3" type="checkbox" tabindex="9" />
+					<label for="ac-3">Pesto</label>
+						<article class="ac-infinite">
+						<table id="price-list" summary="price list">
+							<thead>
+						    	<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+							  	<tbody>
+									<tr>
+										<td>
+
+												BASILICO BASIL PESTO (V)
+
+										</td>
+										<td>
+
+												2.8KG
+
+										</td>
+										<td>
+
+												&pound;36.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RUCOLA ROCKET
+
+										</td>
+										<td>
+
+												2.8KG
+
+										</td>
+										<td>
+
+												&pound;37.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PAESANO SPICY (V)
+
+										</td>
+										<td>
+
+												2.8KG
+
+										</td>
+										<td>
+
+												&pound;36.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												VERDE BASIL (V)
+
+										</td>
+										<td>
+
+												2.8KG
+
+										</td>
+										<td>
+
+												&pound;32.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												VERDE BASIL (V)
+
+										</td>
+										<td>
+
+												1.0KG
+
+										</td>
+										<td>
+
+												&pound;11.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ROSSO SUN DRIED TOMATO (V)
+
+										</td>
+										<td>
+
+												1.0KG
+
+										</td>
+										<td>
+
+												&pound;11.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BLACK OLIVE TAPENADE (V)
+
+										</td>
+										<td>
+
+												1.00KG
+
+										</td>
+										<td>
+
+												&pound;11.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-4" name="accordion-4" type="checkbox" tabindex="10" />
+						<label for="ac-4">Dairy, Meats &amp; Cheeses</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												GREEK YOGURT STRAINED (V)
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;33.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK YOGURT STRAINED (V)
+
+										</td>
+										<td>
+
+												5.0KG
+
+										</td>
+										<td>
+
+												&pound;16.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK YOGURT COW (V)
+
+										</td>
+										<td>
+
+												200G
+
+										</td>
+										<td>
+
+												&pound;0.85
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEBNEH (V)
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;28.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED FETA (V) (GREEK)
+
+										</td>
+										<td>
+
+												16.0KG
+
+										</td>
+										<td>
+
+												&pound;50.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED FETA (V) (GREEK P.D.O)
+
+										</td>
+										<td>
+
+												16.0KG
+
+										</td>
+										<td>
+
+												&pound;100.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RICOTTA CHEESE (V)
+
+										</td>
+										<td>
+
+												12x200G
+
+										</td>
+										<td>
+
+												&pound;36.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK FETA (V) VACUM PACKED
+
+										</td>
+										<td>
+
+												1.00KG
+
+										</td>
+										<td>
+
+												&pound;8.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK FETA (V) VACUUM PACKED IN 12&rsquo;S
+
+										</td>
+										<td>
+
+												12x200G
+
+										</td>
+										<td>
+
+												&pound;20.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHEDDAR BLOCKS MATURE (V)
+
+										</td>
+										<td>
+
+												4X5.0KG
+
+										</td>
+										<td>
+
+												&pound;100.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHEDDAR BLOCKS MILD (V)
+
+										</td>
+										<td>
+
+												4X5.0KG
+
+										</td>
+										<td>
+
+												&pound;95.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												HALLOUMI CHEESE (V)
+
+										</td>
+										<td>
+
+												PACKSX8
+
+										</td>
+										<td>
+
+												&pound;17.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												HALLOUMI CHEESE BOX APPROX 40 PCKS (V)
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;69.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BRIE
+
+										</td>
+										<td>
+
+												1.00KG
+
+										</td>
+										<td>
+
+												&pound;7.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GRANA PADANO
+
+										</td>
+										<td>
+
+												PER KILO
+
+										</td>
+										<td>
+
+												&pound;11.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												STILTON
+
+										</td>
+										<td>
+
+												PER KILO
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MILD CHEDDAR GRATED
+
+										</td>
+										<td>
+
+												1.00KG
+
+										</td>
+										<td>
+
+												&pound;6.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MATURE CHEDDAR GRATED
+
+										</td>
+										<td>
+
+												1.00KG
+
+										</td>
+										<td>
+
+												&pound;6.70
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MOZZARELLA GRATED
+
+										</td>
+										<td>
+
+												1.00KG
+
+										</td>
+										<td>
+
+												&pound;6.70
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MOZARELLA BLOCK
+
+										</td>
+										<td>
+
+												PER KILO
+
+										</td>
+										<td>
+
+												&pound;7.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GOATS LOG
+
+										</td>
+										<td>
+
+												1.00KG
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SLICED EMMENTHAL
+
+										</td>
+										<td>
+
+												50 SLICES
+
+										</td>
+										<td>
+
+												&pound;8.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MATURE CHEDDAR
+
+										</td>
+										<td>
+
+												50 SLICES
+
+										</td>
+										<td>
+
+												&pound;8.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MOZARELLA
+
+										</td>
+										<td>
+
+												50 SLICES
+
+										</td>
+										<td>
+
+												&pound;8.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												WAFER SLICED PROSCIUTTO
+
+										</td>
+										<td>
+
+												500G
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK SAUSAGES LOUKANIKA PORK
+
+										</td>
+										<td>
+
+												2.0KG
+
+										</td>
+										<td>
+
+												&pound;17.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK SAUSAGES LOUKANIKA PORK
+
+										</td>
+										<td>
+
+												1.0KG
+
+										</td>
+										<td>
+
+												&pound;9.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK SAUSAGES BASTOURMA BEEF
+
+										</td>
+										<td>
+
+												2.0KG
+
+										</td>
+										<td>
+
+												&pound;17.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SPICY SAUSAGE SUCHUC
+
+										</td>
+										<td>
+
+												1.0KG
+
+										</td>
+										<td>
+
+												&pound;9.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-5" name="accordion-5" type="checkbox" tabindex="11" />
+						<label for="ac-5">Oils, Vinegars &amp; Breads</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												ORGANIC OLIVE OIL, GREEK, EXTRA VIRGIN
+
+										</td>
+										<td>
+
+												20LTRS (4X5LTR)
+
+										</td>
+										<td>
+
+												&pound;100.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												OLIVE OIL, GREEK, EXTRA VIRGIN
+
+										</td>
+										<td>
+
+												20LTRS (4X5LTR)
+
+										</td>
+										<td>
+
+												&pound;78.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												OLIVE OIL SPANISH EXTRA VIRGIN
+
+										</td>
+										<td>
+
+												4X5LTR
+
+										</td>
+										<td>
+
+												&pound;68.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												POMACE OIL
+
+										</td>
+										<td>
+
+												20LTRS (4X5LTR)
+
+										</td>
+										<td>
+
+												&pound;45.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK EXTRA VIRGIN OLIVE OIL
+
+										</td>
+										<td>
+
+												12x1LTR
+
+										</td>
+										<td>
+
+												&pound;50.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BALSAMIC VINEGAR 5 YR.
+
+										</td>
+										<td>
+
+												6x1LTR (CASE)
+
+										</td>
+										<td>
+
+												&pound;48.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BALSAMIC VINEGAR 5 YR.
+
+										</td>
+										<td>
+
+												5LTR
+
+										</td>
+										<td>
+
+												&pound;18.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PITTA BREAD WHOLEMEAL (vacuum packed)
+
+										</td>
+										<td>
+
+												20PACKSx6
+
+										</td>
+										<td>
+
+												&pound;14.30
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PITTA BREAD WHITE (vacuum packed)
+
+										</td>
+										<td>
+
+												18PACKSx6
+
+										</td>
+										<td>
+
+												&pound;15.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRESH PITTA BREAD
+
+										</td>
+										<td>
+
+												30x6
+
+										</td>
+										<td>
+
+												&pound;16.80
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SMALL PITTA BREAD
+
+										</td>
+										<td>
+
+												20x12
+
+										</td>
+										<td>
+
+												&pound;18.80
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TORTILLA CHIPS CHILLI
+
+										</td>
+										<td>
+
+												12x500G
+
+										</td>
+										<td>
+
+												&pound;21.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												WRAPS ARABIC FLAT BREAD 12&rdquo;
+
+										</td>
+										<td>
+
+												10x5
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												WRAPS ARABIC FLAT BREAD 10&rdquo;
+
+										</td>
+										<td>
+
+												10x5
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRESH GREEK BREAD
+
+										</td>
+										<td>
+
+												x1
+
+										</td>
+										<td>
+
+												&pound;1.50
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-6" name="accordion-6" type="checkbox" tabindex="12" />
+						<label for="ac-6">Seafood</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												FILLETTI DI ALICI (ANCHOVY FILLETS)
+
+										</td>
+										<td>
+
+												1.0KG
+
+										</td>
+										<td>
+
+												&pound;15.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED TUNA
+
+										</td>
+										<td>
+
+												6x1.77KG
+
+										</td>
+										<td>
+
+												&pound;45.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							</article>
+						</div>
+						<div>
+							<input id="ac-7" name="accordion-7" type="checkbox" tabindex="13" />
+							<label for="ac-7">Vegetables, Tomatoes and  crudit&eacute;</label>
+							<article class="ac-infinite">
+								<table id="price-list" summary="price list">
+								  <thead>
+									<tr>
+										<th scope="col" class="item-description" style="width: 80%;">Item</th>
+									    <th scope="col" class="volume" style="width: 10%;">Volume</th>
+									    <th scope="col" class="price" style="width: 10%;">Price</th>
+									</tr>
+								  </thead>
+									<tr>
+										<td>
+
+												CHICK PEAS TINNED
+
+										</td>
+										<td>
+
+												6X3KG
+
+										</td>
+										<td>
+
+												&pound;23.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED OKRA IN TOMATO SAUCE
+
+										</td>
+										<td>
+
+												24X28
+
+										</td>
+										<td>
+
+												&pound;33.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED YIANDER BEANS IN TOMATO SAUCE
+
+										</td>
+										<td>
+
+												24X280G
+
+										</td>
+										<td>
+
+												&pound;33.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED YIANDER BEANS CATERING SIZE
+
+										</td>
+										<td>
+
+												6X2.1KG
+
+										</td>
+										<td>
+
+												&pound;38.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED ARTICHOKES
+
+										</td>
+										<td>
+
+												6X2.5KG
+
+										</td>
+										<td>
+
+												&pound;43.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED TOMATO PASTE GREEK
+
+										</td>
+										<td>
+
+												3X4.5KG
+
+										</td>
+										<td>
+
+												&pound;45.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED TOMATO PASTE GREEK
+
+										</td>
+										<td>
+
+												12X1KG
+
+										</td>
+										<td>
+
+												&pound;28.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED DOLMAS
+
+										</td>
+										<td>
+
+												24X280G
+
+										</td>
+										<td>
+
+												&pound;33.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TINNED DOLMAS CATERING SIZE
+
+										</td>
+										<td>
+
+												6X2.1KG
+
+										</td>
+										<td>
+
+												&pound;38.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TAHINI JARS
+
+										</td>
+										<td>
+
+												1X12
+
+										</td>
+										<td>
+
+												&pound;27.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TAHINI
+
+										</td>
+										<td>
+
+												5.0KG
+
+										</td>
+										<td>
+
+												&pound;25.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GARLIC CLOVES MARINATED
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MATURE CAPERS IN WINE VINEGAR
+
+										</td>
+										<td>
+
+												1.0KG
+
+										</td>
+										<td>
+
+												&pound;11.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GRILLED AUBERGINES MARINATED
+
+										</td>
+										<td>
+
+												2.8KG
+
+										</td>
+										<td>
+
+												&pound;24.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SUN DRIED TOMATOES DRY
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;65.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SUN DRIED TOMATOES MARINATED IN OLIVE OIL
+
+										</td>
+										<td>
+
+												5.0KG
+
+										</td>
+										<td>
+
+												&pound;28.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SUN DRIED TOMATO BITS PEZZETTI
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;27.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SUN BLUSH TOMATOES
+
+										</td>
+										<td>
+
+												1.0KG
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CARCIOFI MARINATED WHOLE ARTICHOKES
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;27.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ANTIPASTO PRIMAVERA
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;24.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-8" name="accordion-8" type="checkbox" tabindex="14" />
+						<label for="ac-8">Mixed Marinated Vegetables</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												RED CHILLIES STUFFED WITH FETA
+
+										</td>
+										<td>
+
+												2.0KG
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												YELLOW CHILLIES IN BRINE TIN
+
+										</td>
+										<td>
+
+												8.0KG
+
+										</td>
+										<td>
+
+												&pound;13.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GRILLED AUBERGINES MARINATED
+
+										</td>
+										<td>
+
+												2.8KG
+
+										</td>
+										<td>
+
+												&pound;24.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GRILLED RED &amp; YELLOW PEPPERS MARINATED
+
+										</td>
+										<td>
+
+												2.8KG
+
+										</td>
+										<td>
+
+												&pound;24.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK PASTA RICE
+
+										</td>
+										<td>
+
+												12X500G
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MACARONI PASTA
+
+										</td>
+										<td>
+
+												12X500G
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												COUS COUS
+
+										</td>
+										<td>
+
+												12X500G
+
+										</td>
+										<td>
+
+												&pound;15.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												VINE LEAF SACHETS IN BRINE
+
+										</td>
+										<td>
+
+												12X227G
+
+										</td>
+										<td>
+
+												&pound;19.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+						</div>
+						<div>
+						<input id="ac-9" name="accordion-9" type="checkbox" tabindex="15" />
+						<label for="ac-9">Olives</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												PITTED MAMOUTH GREEN OLIVES
+
+										</td>
+										<td>
+
+												13.00KG
+
+										</td>
+										<td>
+
+												&pound;48.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												KALAMATA OLIVES SUPER GIANT
+
+										</td>
+										<td>
+
+												13.0KG
+
+										</td>
+										<td>
+
+												&pound;52.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												KALAMATA OLIVES
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;16.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEN OLIVES (MAMOUTH)
+
+										</td>
+										<td>
+
+												12.0KG
+
+										</td>
+										<td>
+
+												&pound;45.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BLACK OLIVES (GIANT)
+
+										</td>
+										<td>
+
+												12.0KG
+
+										</td>
+										<td>
+
+												&pound;40.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEN OLIVES (GIANT)
+
+										</td>
+										<td>
+
+												12.0KG
+
+										</td>
+										<td>
+
+												&pound;42.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEN OLIVES STUFFED WITH FETA
+
+										</td>
+										<td>
+
+												2.0KG
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEN OLIVES STUFFED WITH SUN DRIED TOMATOES
+
+										</td>
+										<td>
+
+												2.0KG
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PITTED BLACK OLIVES
+
+										</td>
+										<td>
+
+												6X4.2KG
+
+										</td>
+										<td>
+
+												&pound;38.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PITTED BLACK OLIVES COLOSSAL
+
+										</td>
+										<td>
+
+												4.00KG
+
+										</td>
+										<td>
+
+												&pound;19.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PITTED GREEN OLIVES
+
+										</td>
+										<td>
+
+												6X4.2KG
+
+										</td>
+										<td>
+
+												&pound;38.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PITTED BLACK SLICED OLIVES
+
+										</td>
+										<td>
+
+												6X3.0KG
+
+										</td>
+										<td>
+
+												&pound;32.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMOLIVA LARGE GREEN OLIVES STUFFED WITH LEMON
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;25.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												AGLOLIVA LARGE GREEN OLIVES STUFFED WITH GARLIC
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;25.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MANDORLIVA LARGE GREEN OLIVES STUFFED WITH ALMONDS
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;25.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ETNA LARGE GREEN CRACKED OLIVES
+
+										</td>
+										<td>
+
+												5.35KG
+
+										</td>
+										<td>
+
+												&pound;28.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BOSCAIOLA MARINATED LARGE GREEN PITTED OLIVES
+
+										</td>
+										<td>
+
+												5.35KG
+
+										</td>
+										<td>
+
+												&pound;31.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RUSTICA MARINATED LARGE BLACK OLIVES
+
+										</td>
+										<td>
+
+												5.35KG
+
+										</td>
+										<td>
+
+												&pound;30.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												KALAMATA MARINATED PITTED KALAMATA OLIVES
+
+										</td>
+										<td>
+
+												5.35KG
+
+										</td>
+										<td>
+
+												&pound;35.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MISTO MARINATED BLACK/GREEN PITTED OLIVES
+
+										</td>
+										<td>
+
+												5.35KG
+
+										</td>
+										<td>
+
+												&pound;31.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PAESANA MARINATED BLACK PITTED OLIVES
+
+										</td>
+										<td>
+
+												5.35KG
+
+										</td>
+										<td>
+
+												&pound;31.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON OLIVES MARINATED WITH FRESH DILL, PARSLEY &amp; LEMON PEEL
+
+										</td>
+										<td>
+
+												5.35KG
+
+										</td>
+										<td>
+
+												&pound;28.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-10" name="accordion-10" type="checkbox" tabindex="16" />
+						<label for="ac-10">Tray Bakes</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Portions</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												CRUNCHY CHOCOLATE OR CARAMEL
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;6.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ROCKY ROAD
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;6.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CARAMELS DARK CHOCOLATE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;6.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRUIT &amp; NUT WHITE OR DARK CHOCOLATE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;6.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FLAKEY CAKE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;6.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FUDGE BROWNIES
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CAPPUCCINO SLICE
+
+										</td>
+										<td>
+
+												16 PTN
+
+										</td>
+										<td>
+
+												&pound;6.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MARBLE CRUNCHY
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TIFFIN
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												JAFFA SLICE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ALMOND SLICE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ALMOND SLICE
+
+										</td>
+										<td>
+
+												8 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												YOGURT &amp; CRANBERRY TIFFIN
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;7.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TOFFEE TIFFIN
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;7.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												DARK MILLIONAIRES SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												WHITE MILLIONAIRES SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MILK MILLIONAIRES SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FLORENTINE MILLIONAIRES
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CUPPUCCINO MILLIONAIRES (Coffee filling)
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ECCLES CAKE SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												STRAWBERRY SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHERRY SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ALL BUTTER SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON CURD SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BLACKCURRENT SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												APRICOT &amp; PECAN SHORTBREAD
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TRADITIONAL FLAPJACK
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.20
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												STRAWBERRY FLAPJACK
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												APPLE &amp; RASPBERRY FLAPJACK
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SEEDED DATE FLAPJACK
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PUMPKIN SEED AND APRICOT FLAPJACK
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;7.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												DUCHESS SLICE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CUPPUCCINO MILLIONAIRES
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GRANOLA SLICE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TORTEN SLICE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												COCONUT PARADISE
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;8.15
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CARROT LOAF CAKE
+
+										</td>
+										<td>
+
+												8 PTN
+
+										</td>
+										<td>
+
+												&pound;5.80
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON LOAF CAKE
+
+										</td>
+										<td>
+
+												8 PTN
+
+										</td>
+										<td>
+
+												&pound;5.80
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHOCOLATE LOAF CAKE
+
+										</td>
+										<td>
+
+												8 PTN
+
+										</td>
+										<td>
+
+												&pound;5.80
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BANANA LOAF CAKE
+
+										</td>
+										<td>
+
+												8 PTN
+
+										</td>
+										<td>
+
+												&pound;5.80
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RICH FRUIT LOAF CAKE
+
+										</td>
+										<td>
+
+												8 PTN
+
+										</td>
+										<td>
+
+												&pound;5.80
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							</article>
+						</div>
+						<div>
+							<input id="ac-11" name="accordion-11" type="checkbox" tabindex="17" />
+							<label for="ac-11">Fresh Cream Individual Pastries</label>
+							<article class="ac-infinite">
+								<table id="price-list" summary="price list">
+								  <thead>
+									<tr>
+										<th scope="col" class="item-description" style="width: 80%;">Item</th>
+									    <th scope="col" class="volume" style="width: 10%;">Portions</th>
+									    <th scope="col" class="price" style="width: 10%;">Price</th>
+									</tr>
+								  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												MILLE FEUILLES
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;16.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PROFITEROLES &amp; SAUCE
+
+										</td>
+										<td>
+
+												36 PTN
+
+										</td>
+										<td>
+
+												&pound;16.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BANOFFEE TARTS
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;11.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												STRAWBERRY TARTS
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;11.50
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-12" name="accordion-12" type="checkbox" tabindex="18" />
+						<label for="ac-12">Patisserie, Pre-cut and Papered</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+									<th scope="col" class="item-description" style="width: 80%;">Item</th>
+								    <th scope="col" class="volume" style="width: 10%;">Portions</th>
+								    <th scope="col" class="price" style="width: 10%;">Price</th>
+								</tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												CERANO
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BANOFFEE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CAPPUCCINO TORTE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BLACK FOREST
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												STICKY TOFFEE APPLE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHOCOLATE FUDGE CAKE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PASSION CAKE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												PECAN PIE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;15.70
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												DEATH BY CHOCOLATE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TIRAMISU
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRESH FRUIT G&Acirc;TEAUX
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;15.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												HEAVENLY G&Acirc;TEAUX
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-13" name="accordion-13" type="checkbox" tabindex="19" />
+						<label for="ac-13">Patisserie, Pies and Cakes</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+									<th scope="col" class="item-description" style="width: 80%;">Item</th>
+								    <th scope="col" class="volume" style="width: 10%;">Portions</th>
+								    <th scope="col" class="price" style="width: 10%;">Price</th>
+								</tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												DEEP APPLE PIE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON MERINGUE PIE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRUIT CAKE
+
+										</td>
+										<td>
+
+												10 PTN
+
+										</td>
+										<td>
+
+												&pound;11.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												WHITE LUMPY BUMPY CAKE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHOCOLATE CUSTARD BAR
+
+										</td>
+										<td>
+
+												12-14 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												COCONUT BAR
+
+										</td>
+										<td>
+
+												12-14 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CARROT BAR
+
+										</td>
+										<td>
+
+												12-14 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON DRIZZLE BAR
+
+										</td>
+										<td>
+
+												12-14 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												COFFEE &amp; WALNUT BAR
+
+										</td>
+										<td>
+
+												12-14 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												STRAWBEERY TART WITH JAM
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;10.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CARROT SLICE
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHERRY SLICE
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;12.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MINCE SLICE
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												APPLE SLICE
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON SLICE
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRESH FRUIT TART
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MISSISSIPPI TART
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;10.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON MERINGUE TART
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;10.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BAKEWELL TART (PRE PACKED)
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CUSTARD TART
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RUM BABA
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-14" name="accordion-14" type="checkbox" tabindex="20" />
+						<label for="ac-14">Patisserie, Muffins and Trays</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+									<th scope="col" class="item-description" style="width: 80%;">Item</th>
+								    <th scope="col" class="volume" style="width: 10%;">Portions</th>
+								    <th scope="col" class="price" style="width: 10%;">Price</th>
+								</tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												MUFFINS BLACKCURRANT
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;7.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MUFFINS CHOCOLATE
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;7.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LUXURY CHOCOLATE MUFFINS
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;13.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LUXURY LEMON &amp; CRANBERRY MUFFINS
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;13.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LUXURY TOFFEE &amp; PECAN MUFFINS
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;13.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												ECLAIRS (LONG LIFE)
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;10.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FLORENTINES
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;8.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHOCOLATE COOKIES (PRE-PACKED)
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;10.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SMARTIE COOKIES (PRE-PACKED)
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;9.70
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												APPLE STRUDEL
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;11.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHOCOLATE FUDGE BROWNIES
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SPANACOPITTES
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SMALL SPANACOPITTES
+
+										</td>
+										<td>
+
+												48 PTN
+
+										</td>
+										<td>
+
+												&pound;22.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BAKLAVA
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;11.70
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												SMALL BAKLAVA
+
+										</td>
+										<td>
+
+												48 PTN
+
+										</td>
+										<td>
+
+												&pound;14.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TWISTER CINNAMON &amp; ALMOND
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												VIENNESE FINGERS
+
+										</td>
+										<td>
+
+												12 PTN
+
+										</td>
+										<td>
+
+												&pound;9.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												KATAIFI
+
+										</td>
+										<td>
+
+												18 PTN
+
+										</td>
+										<td>
+
+												&pound;12.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GALATOPOUREKO
+
+										</td>
+										<td>
+
+												15 PTN
+
+										</td>
+										<td>
+
+												&pound;12.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GALATOPOUREKO
+
+										</td>
+										<td>
+
+												27 PTN
+
+										</td>
+										<td>
+
+												&pound;13.90
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												KOURAPIEDES (GREEK SHORTBREAD)
+
+										</td>
+										<td>
+
+												36 PTN
+
+										</td>
+										<td>
+
+												&pound;15.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-15" name="accordion-15" type="checkbox" tabindex="21" />
+						<label for="ac-15">American Baked Cheesecakes</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+									<th scope="col" class="item-description" style="width: 80%;">Item</th>
+								    <th scope="col" class="volume" style="width: 10%;">Portions</th>
+								    <th scope="col" class="price" style="width: 10%;">Price</th>
+								</tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												BLACK CHERRY
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BLACKCURRANT
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												STRAWBERRY
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LEMON &amp; SULTANA
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												FRESH FRUIT
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;15.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CARAMEL CRUNCH
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;15.70
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LOVABLE LEMON
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;15.70
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												RAVING RASPBERRY
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;15.70
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-16" name="accordion-16" type="checkbox" tabindex="22" />
+						<label for="ac-16">Cold Processed Cheescakes</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+									<th scope="col" class="item-description" style="width: 80%;">Item</th>
+								    <th scope="col" class="volume" style="width: 10%;">Portions</th>
+								    <th scope="col" class="price" style="width: 10%;">Price</th>
+								</tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												LEMON &amp; SULTANA
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												WHITE CHOCOLATE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												CHOCOLATE
+
+										</td>
+										<td>
+
+												14 PTN
+
+										</td>
+										<td>
+
+												&pound;14.60
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-17" name="accordion-17" type="checkbox" tabindex="23" />
+						<label for="ac-17">Fresh Cream Birthday Cakes. Inc. personal iced lettering</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Portions</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												SMALL 8&rdquo;
+
+										</td>
+										<td>
+
+												10-15 PTN
+
+										</td>
+										<td>
+
+												&pound;20.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MEDIUM 10&rdquo;
+
+										</td>
+										<td>
+
+												12-18 PTN
+
+										</td>
+										<td>
+
+												&pound;26.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												LARGE 11&rdquo;
+
+										</td>
+										<td>
+
+												20-25 PTN
+
+										</td>
+										<td>
+
+												&pound;30.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							</article>
+							</div>
+							<div>
+								<input id="ac-18" name="accordion-18" type="checkbox" tabindex="24" />
+								<label for="ac-18">Miscellaneous</label>
+								<article class="ac-infinite">
+								<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+									<th scope="col" class="item-description" style="width: 80%;">Item</th>
+								    <th scope="col" class="volume" style="width: 10%;">Volume</th>
+								    <th scope="col" class="price" style="width: 10%;">Price</th>
+								</tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												FILO PASTRY FRESH
+
+										</td>
+										<td>
+
+												10 PACKETS
+
+										</td>
+										<td>
+
+												 &pound;15.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BOTTLES LEMON JUICE
+
+										</td>
+										<td>
+
+												24X400ML
+
+										</td>
+										<td>
+
+												&pound;12.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TURKISH DELIGHT ROSE &amp; LEMON
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;15.50 (inc. VAT)
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												TURKISH DELIGHT PISTACHIO
+
+										</td>
+										<td>
+
+												5.0KG
+
+										</td>
+										<td>
+
+												&pound;38.50
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BOXED PISTACHIOS
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;100.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BOXED ALMONDS
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;95.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												BOXED CASHEWS
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;100.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												MIXED NUTS
+
+										</td>
+										<td>
+
+												10.0KG
+
+										</td>
+										<td>
+
+												&pound;65.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												GREEK COFFEE CAFITIERRE GRIND
+
+										</td>
+										<td>
+
+												10x200G
+
+										</td>
+										<td>
+
+												&pound;28.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-19" name="accordion-19" type="checkbox" tabindex="25" />
+						<label for="ac-19">Halva Blocks</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+							  <thead>
+								<tr>
+						        	<th scope="col" class="item-description" style="width: 80%;">Item</th>
+						            <th scope="col" class="volume" style="width: 10%;">Volume</th>
+						            <th scope="col" class="price" style="width: 10%;">Price</th>
+						        </tr>
+							  </thead>
+								<tbody>
+									<tr>
+										<td>
+
+												HALVA PISTACHIO
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;22.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												HALVA VANILLA
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;20.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												HALVA CHOCOLATE
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;18.00
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+												HALVA ALMOND
+
+										</td>
+										<td>
+
+												3.0KG
+
+										</td>
+										<td>
+
+												&pound;18.00
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</article>
+					</div>
+					<div>
+						<input id="ac-20" name="accordion-20" type="checkbox" tabindex="26"/>
+						<label for="ac-20">Flapjacks &amp; Malted Bars</label>
+						<article class="ac-infinite">
+							<table id="price-list" summary="price list">
+								<thead>
+									<tr>
+							          <th scope="col" class="item-description" style="width: 80%;">Item</th>
+							          <th scope="col" class="volume" style="width: 10%;">Portions</th>
+							          <th scope="col" class="price" style="width: 10%;">Price</th>
+							      </tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td>
+												MALTED FRUIT &amp; SEED BAR, Vegan, No Wheat
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;12.75
+											</td>
+										</tr>
+										<tr>
+											<td>
+												ALL BUTTER FLAPJACK, No Wheat
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;12.15
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+													OLD-FASHIONED TREACLE FLAPJACK, Vegan, No Wheat
+
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;11.65
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+													CINNAMON &amp; APPLE FILLED FLAPJACK, Vegan, No Wheat
+
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;11.65
+											</td>
+										</tr>
+										<tr>
+											<td>
+
+													APRICOT FILLED FLAPJACK, Vegan, No Wheat
+
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;11.65
+											</td>
+										</tr>
+										<tr>
+											<td>
+												APPLE &amp; BLACKCURRANT FILLED FLAPJACK, Vegan, No Wheat
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;11.65
+											</td>
+										</tr>
+										<tr>
+											<td>
+												CHOCOLATE &amp; COCONUT FLAPJACK, Vegan, No Wheat
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;12.75
+											</td>
+										</tr>
+										<tr>
+											<td>
+												RICH CARAMEL-TOPPED FLAPJACK, No Wheat
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;12.75
+											</td>
+										</tr>
+										<tr>
+											<td>
+												YOGHURT-TOPPED CINNAMON APPLE FLAPJACK
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;13.25
+											</td>
+										</tr>
+										<tr>
+											<td>
+												YOGHURT-TOPPED APRICOT FILLED FLAPJACK
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;13.25
+											</td>
+										</tr>
+										<tr>
+											<td>
+												YOGHURT-TOPPED APPLE &amp; BLACKCURRANT FILLED FLAPJACK
+											</td>
+											<td>
+												16
+											</td>
+											<td>
+												&pound;13.25
+											</td>
+										</tr>
+										<tr>
+											<td>
+												&nbsp;
+											</td>
+											<td>
+												&nbsp;
+											</td>
+											<td>
+												&nbsp;
+											</td>
+										</tr>
+								</tbody>
+							</table>
+					</article>
+				</div>
+				<div>
+					<input id="ac-21" name="accordion-21" type="checkbox" tabindex="27"/>
+					<label for="ac-21">Brownies</label>
+					<article class="ac-infinite">
+						<table id="price-list" summary="price list">
+							<thead>
+								<tr>
+						          <th scope="col" class="item-description" style="width: 80%;">Item</th>
+						          <th scope="col" class="volume" style="width: 10%;">Portions</th>
+						          <th scope="col" class="price" style="width: 10%;">Price</th>
+						      </tr>
+							</thead>
+						  <tbody>
+						    <tr>
+						      <td>CHOCOLATE BROWNIE with WALNUTS, Gluten Free</td>
+						      <td>16</td>
+						      <td>&pound;13.25</td>
+						    </tr>
+						    <tr>
+						      <td> CHOCOLATE BROWNIE with RASPBERRIES, Gluten Free</td>
+						      <td>16</td>
+						      <td>&pound;13.25</td>
+						    </tr>
+						    <tr>
+						      <td>&nbsp;</td>
+						      <td>&nbsp;</td>
+						      <td>&nbsp;</td>
+						    </tr>
+						  </tbody>
+						</table>
+				</article>
+			</div>
+			<div>
+				<input id="ac-22" name="accordion-22" type="checkbox" tabindex="28"/>
+				<label for="ac-22">Shortbreads</label>
+				<article class="ac-infinite">
+					<table id="price-list" summary="price list">
+						<thead>
+							<tr>
+					          <th scope="col" class="item-description" style="width: 80%;">Item</th>
+					          <th scope="col" class="volume" style="width: 10%;">Portions</th>
+					          <th scope="col" class="price" style="width: 10%;">Price</th>
+					      </tr>
+						</thead>
+					  <tbody>
+				  		<tr>
+
+				  			<td>
+
+		  				    PURE BUTTER SHORTBREAD</td>
+
+				  			<td>16</td>
+
+				  			<td>&pound;12.15</td>
+
+				  		</tr>
+
+				  		<tr>
+
+				  			<td>
+
+				  				PURE BUTTER SHORTBREAD with CHERRIES</td>
+
+				  			<td>16</td>
+
+				  			<td>&pound;12.75</td>
+
+				  		</tr>
+
+				  		<tr>
+
+				  			<td>APPLE &amp; DATE SHORTBREAD, Vegan</td>
+
+				  			<td>16</td>
+
+				  			<td>&pound;12.75</td>
+
+				  		</tr>
+
+				  		<tr>
+
+				  			<td>MINCEMEAT SHORTBREAD, Vegan </td>
+
+				  			<td>16</td>
+
+				  			<td>&pound;12.75</td>
+
+				  		</tr>
+
+				  		<tr>
+
+				  			<td>LUXURY CHOCOLATE CARAMEL SHORTBREAD</td>
+
+				  			<td>16</td>
+
+				  			<td>&pound;13.25</td>
+
+				  		</tr>
+
+				  		<tr>
+
+				  			<td>
+
+				  				RASPBERRY &amp; ALMOND FRANGIPANE</td>
+
+				  			<td>16</td>
+
+				  			<td>&pound;17.35</td>
+
+				  		</tr>
+
+				  		<tr>
+
+				  			<td>&nbsp;</td>
+
+				  			<td>&nbsp;</td>
+
+				  			<td>&nbsp;</td>
+
+				  		</tr>
+					    </tbody>
+					</table>
+				</article>
+			</div>
+			<div>
+				<input id="ac-23" name="accordion-23" type="checkbox" tabindex="29"/>
+				<label for="ac-23">10" Round Cakes</label>
+				<article class="ac-infinite">
+					<table id="price-list" summary="price list">
+						<thead>
+							<tr>
+					          <th scope="col" class="item-description" style="width: 80%;">Item</th>
+					          <th scope="col" class="volume" style="width: 10%;">Portions</th>
+					          <th scope="col" class="price" style="width: 10%;">Price</th>
+					      </tr>
+						</thead>
+						<tbody>
+						      <tr>
+						        <td>CARROT CAKE with CREAM CHEESE FROSTING, Vegan</td>
+						        <td>12-16PTN</td>
+						        <td>&pound;16.85</td>
+						      </tr>
+						      <tr>
+						        <td>BRAMLEY APPLE CAKE, Vegan</td>
+						        <td>12-16PTN</td>
+						        <td>&pound;15.45</td>
+						      </tr>
+						      <tr>
+						        <td>COFFEE CAKE, Vegan</td>
+						        <td>12-16PTN</td>
+						        <td>&pound;16.85</td>
+						      </tr>
+						      <tr>
+						        <td>VICTORIA with VANILLA BUTTERCREAM &amp; DEVON RASPBERRY JAM, Vegan</td>
+						        <td>12-16PTN</td>
+						        <td>&pound;16.85</td>
+						      </tr>
+						      <tr>
+						        <td>CHOCOLATE FUDGE CAKE (fully coated), Vegan</td>
+						        <td>12-16PTN</td>
+						        <td>&pound;19.75</td>
+						      </tr>
+						      <tr>
+						        <td>&nbsp;</td>
+						        <td>&nbsp;</td>
+						        <td>&nbsp;</td>
+						      </tr>
+					    </tbody>
+					</table>
+				</article>
+			</div>
+			<div>
+				<input id="ac-24" name="accordion-24" type="checkbox" tabindex="30"/>
+				<label for="ac-24">10" Loaf Cakes</label>
+				<article class="ac-infinite">
+					<table id="price-list" summary="price list">
+						<thead>
+							<tr>
+					          <th scope="col" class="item-description" style="width: 80%;">Item</th>
+					          <th scope="col" class="volume" style="width: 10%;">Portions</th>
+					          <th scope="col" class="price" style="width: 10%;">Price</th>
+					      </tr>
+						</thead>
+						<tbody>
+						    <tr>
+						      <td> SPICED GINGER CAKE, Vegan</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;9.10</td>
+						    </tr>
+						    <tr>
+						      <td>MOIST FRUIT CAKE with CHERRIES, Vegan</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;10.20</td>
+						    </tr>
+						    <tr>
+						      <td>&nbsp;</td>
+						      <td>&nbsp;</td>
+						      <td>&nbsp;</td>
+						    </tr>
+						  </tbody>
+					</table>
+				</article>
+			</div>
+			<div>
+				<input id="ac-25" name="accordion-25" type="checkbox" tabindex="31"/>
+				<label for="ac-25">Vegetarian Savoury Pies &amp; Flan</label>
+				<article class="ac-infinite">
+					<table id="price-list" summary="price list">
+						<thead>
+							<tr>
+					          <th scope="col" class="item-description" style="width: 80%;">Item</th>
+					          <th scope="col" class="volume" style="width: 10%;">Portions</th>
+					          <th scope="col" class="price" style="width: 10%;">Price</th>
+					      </tr>
+						</thead>
+						<tbody>
+						    <tr>
+						      <td>POTATO &amp; MATURE CHEDDAR PIE w. HERBS &amp; TOMATO</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;17.65</td>
+						    </tr>
+						    <tr>
+						      <td>HOMITY PIE</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;17.65</td>
+						    </tr>
+						    <tr>
+						      <td>SPICY RED LENTIL &amp; CHEDDAR FLAN</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;17.65</td>
+						    </tr>
+						    <tr>
+						      <td>LEEK &amp; MUSHROOM PIE w. CREAM &amp; FRESH GARLIC (Lidded)</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;20.15</td>
+						    </tr>
+						    <tr>
+						      <td>MEDITERRANEAN VEGETABLE FLAN with FETA</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;20.15</td>
+						    </tr>
+						    <tr>
+						      <td> CHEDDAR &amp; SPRING ONION TART</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;17.85</td>
+						    </tr>
+						    <tr>
+						      <td>GRUYÈRE &amp; BROCCOLI TART </td>
+						      <td>10-12PTN</td>
+						      <td>&pound;20.15</td>
+						    </tr>
+						    <tr>
+						      <td> STILTON &amp; MUSHROOM TART </td>
+						      <td>10-12PTN</td>
+						      <td>&pound;20.15</td>
+						    </tr>
+						    <tr>
+						      <td>SPICED CHICK PEA &amp; SPINACH PIE (Lidded), Vegan</td>
+						      <td>10-12PTN</td>
+						      <td>&pound;20.15</td>
+						    </tr>
+						    <tr>
+						      <td>&nbsp;</td>
+						      <td>&nbsp;</td>
+						      <td>&nbsp;</td>
+						    </tr>
+						  </tbody>
+					</table>
+				</article>
+			</div>
+					<div class="overscroll"></div><!-- Universal -->
+				</section>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<style>.bxslider { height:100%; height:100vh!important; -webkit-backface-visibility: hidden;} </style>
+
+<script type="text/javascript">
+// Simple custom pager, to automate into an array.
+  $(document).ready(function(){
+	$('.bxslider').bxSlider({
+	    pagerCustom: '.common-items',
+	    oneToOneTouch: false
+	});
+  });
+</script>
+
+<script>
+  $(function () {
+    // Automate an array within Wordpress.
+    $("#slider1").responsiveSlides({
+      // maxwidth: 800,
+      speed: 0
+    });
+  });
+</script>
+
+<script type="application/javascript">
+// remove ~300ms delay
+	window.addEventListener('load', function() {
+	    new FastClick(document.body);
+	}, false);
+</script>
+
+<!-- bouncefix -->
+<script type="text/javascript">
+// Bulletproof method of preventing the layout from falling apart.
+$(function() {
+  $(document).on("touchmove", function(evt) { evt.preventDefault() });
+  $(document).on("touchmove", ".PostContent", function(evt) { evt.stopPropagation() });
+});
+</script>
+<script>
+	bouncefix.add('PostContent');
+</script>
+
+<script type="text/javascript">addToHomescreen({
+	//debug: true
+});</script>
+
+<!--script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-42761599-5', 'greekfoods.co.uk');
+	ga('send', 'pageview');
+</script - http://tools.pingdom.com/fpt -->
+
+</body>
+</html>

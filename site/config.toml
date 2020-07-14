@@ -1,9 +1,28 @@
-baseurl = "https://greekfoods.co.uk/" #./
-languageCode = "en-gb"
-languageLang = "en"
+# baseurl = "./" # local only
+baseurl = "https://greekfoods.co.uk/" #{{ .Site.BaseURL }} && netlify
+
+# relativeURLs = "true" #https://github.com/gohugoio/hugo/issues/985
+languageCode = "en" #Initial configuration reset #languageCode = "en-us"
 title = "Greek Foods"
+images = "https://greekfoods.co.uk/images/rslide-04.jpg" #JC1.jpg
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details:
 # https://gohugo.io/getting-started/configuration/#toml-configuration
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+
+[Params]
+  email = "mel@georgemiliotis.co.uk"
+  keywords = ["Dips and Sauces", "Small Pots", "Pesto", "Dairy, Meats and Cheeses", "Oil, Vinegars and Breads", "Seafood", "Vegetables, Tomatoes and crudité", "Mixed Marinated Vegetables", "Olives", "Tray Bakes", "Fresh Cream Individual Pastries", "Patisserie, Pre-cut and Papered", "Patisserie, Pies and Cakes", "Patisserie, Muffins and Trays", "American Baked Cheesecakes", "Cold Processed Cheesecakes", "Fresh Cream Birthday Cakes. inc personal iced lettering", "Halva Blocks", "Flapjacks", "Malted Bars", "Brownies", "Shortbreads", "10inch Round Cakes", "10inch Loaf Cakes", "Vegetarian Savoury Pies and Flan", "Shortbreads", "London", "Oxford" ]
+  description = """A London based family business. We supply wholesale & retail to the south of England as far as Birmingham, Leicester & around Oxfordshire. Products include, but are not limited to: extra virgin olive oil, dips, cheeses, pestos, breads, marinated vegetables, crudité & a patisserie & cake selection.""" #<160 thing for SERP
+  SiteDescription = "Wholesale Mediterranean Foods"
+  copyright = "Scott Phillips" # © = http://www.theukwebdesigncompany.com/articles/entity-escape-characters.php
+
+[author]
+  name = "Mel Miliotis"
+  email = "mel@georgemiliotis.co.uk"
+  image = "https://greekfoods.co.uk/images/rslide-04.jpg" #https://greekfoods.co.uk/favicon.png
+  homepage = "https://greekfoods.co.uk/"
+  #facebook = "https://greekfoods.co.uk/" #"inspiredlabs"
+  #twitter = "greekfoods" #https://twitter.com/PabloWoodward/, "inspiredlabs"
+	bio = """George Miliotis has been supplying England with traditional greek foods for over 30 years and like any good tradition, George Miliotis & Son still continue to supply the finest food the Mediterranean has to offer. Our red vans have been driven hundreds of thousands of miles bringing the chefs, caterers, deli owners, sandwich makers, & restaurateurs what we believe to be our special service.""" #"""multi-line""" #https://discourse.gohugo.io/t/how-to-access-site-params-map-with-a-params-variable/348/2

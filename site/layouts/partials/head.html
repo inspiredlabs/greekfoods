@@ -1,34 +1,115 @@
+<!doctype html>
+<html lang="{{ $.Site.LanguageCode | default "en-gb" }}" class="h-100 touch-manipulation">
 <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="{{ .Permalink }}" />
 
-  <title>{{ .Title }} | {{ $.Site.Title }}</title>
+    
+    <!-- Enable responsiveness on mobile devices-->
+    <title>{{ .Site.Title }}</title>
+    <meta name=apple-mobile-web-app-title content="{{ .Site.Title }}">
+    
+    <!-- SERP <160 length -->
+    <!-- <meta name="description" content="{{/* .Description | default .Site.Params.SiteDescription */}}"> -->
+    {{ if (isset .Params "description") }}
+    <meta name="description" content="{{ if (isset .Site.Params "description") }}{{ .Site.Params.Description }}{{ end }} | {{ .Params.description }}" />{{ end }}
+    <meta name="homepage" content="{{ .Site.Author.homepage }}" />
+    <meta name="biography" content="{{ .Site.Author.bio }}" />
+    <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}" />
+    <meta name="news_keywords" content="{{ with .Params.news_keywords }}{{ delimit . ", " }}{{ else }}{{ .Keywords }}{{ end }}" />
+    <meta name="copyright" content="©{{ now.Format "2006"}}, {{ .Site.Params.copyright }}" /><!-- | markdownify -->
 
-  {{ $stylesheet := .Site.Data.webpack.main }}
-  {{ with $stylesheet.css }}
-    <link href="{{ relURL . }}" rel="stylesheet">
-  {{ end }}
+    <!-- Twitter: summary|photo|video, a *canonical* link -->
+    <meta name="twitter:url" content="{{ .Permalink }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@{{ .Site.Author.twitter }}" />
+    <meta name="twitter:title" content="{{ .Site.Title }} | {{ .Site.Params.SiteDescription }}" />{{/* .Description */}}
+    <meta name="twitter:creator" content="@{{ .Site.Author.twitter }}" />
+    <meta name="twitter:description" content="{{ .Site.Params.Description }}" />{{/* .Description */}}
+    <meta name="twitter:image" content="{{ .Site.Author.image }}" />{{/* .Site.Author.image | absURL */}}
+    <meta name="twitter:image:src" content="{{ .Site.Author.image }}" />{{/* .Site.Author.image | absURL */}}
 
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <base href="{{ if getenv "CONTEXT" }}{{ cond (eq "production" (getenv "CONTEXT")) (getenv "URL") (getenv "DEPLOY_PRIME_URL") }}{{ else }}{{ $.Site.BaseURL }}{{ end }}">
+    <!-- Open Graph, Facebook needs: context, no branding! Optional `Locale`. -->
+    <!--meta property="og:site_name" content="InstantWebapp" /-->
+    <!-- Mandetory: `Type` website | article | blog = LIKE! (more: neilpatel.com/blog/open-graph-meta-tags/). -->
+    <meta property="og:author" content="{{ .Site.Author.name }}" />
+    <meta property="og:type" content="{{ if (isset .Params "like") }}{{ .Params.like }}{{else}}article{{ end }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:title" content="{{ .Site.Title }} | {{ .Site.Params.SiteDescription }}" />{{ if (isset .Params "description") }}
+    <meta property="og:description" content="{{ .Site.Params.Description }}" />{{/* .Params.description }} {{ if (isset .Site.Params "description") }}{{ .Site.Params.Description }}{{ end */}}{{ end }}
+    <meta property="og:url" content="{{ .Permalink }}" />{{ if (isset .Params "LanguageCode") }}
+    <meta property="og:locale" content="{{ .Params.LanguageCode }}" />{{ else}}
+    <meta property="og:locale" content="{{ if .Params.LanguageCode }}{{ .Params.LanguageCode }}{{ else }}{{ $.Site.LanguageCode | default "en-gb" }}{{ end }}" />{{ end }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}favicon.png" />
+    <meta property="og:image:secure_url" content="{{ .Site.BaseURL }}favicon.png" />
 
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700" rel="stylesheet">
+    <!-- https://testmysite.io -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no" >
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
 
-	<!-- Favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-	<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400">
-	<meta name="theme-color" content="#fff">
+    <meta name="msapplication-TileColor" content="#57005d">
+    <meta name="msapplication-TileImage" content="favicon.png">
 
-	<!-- Open Graph -->
-	<meta property="og:type" content="business.business">
-	<meta property="og:title" content="Kaldi | Great coffee with a conscience">
-	<meta property="og:url" content="/">
-	<meta property="og:image" content="/img/og-image.jpg">
+    <!-- Tachyon Shower -->
+    <link rel="stylesheet" href="https://instantwebapp.netlify.com/css/tachyon.shower.css" />
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}js/flickity.min.css">
 
-  {{ if .IsHome }}
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  {{ end }}
+    <style>
+      /* external css: flickity.css */
+      .carousel-cell{/*width: 100%;*/width:100vw;/*height: 100%;*/height:calc(100% - 1px);/*overflow-y:scroll;-webkit-overflow-scrolling:touch;padding-top:4.4rem;*/}
+
+      .flickity-page-dots {
+        bottom: 0;
+        z-index: 999;
+      }
+
+      .button.is-selected {
+        opacity: 1;
+      }
+
+      /* article p {
+        text-align: left;
+      } */
+
+      /* article h4, article h5, article h6 {
+        text-align: left;
+      } */
+      
+      .photo {
+        background: url(images/_cover.jpg)no-repeat center center fixed;
+        /* -webkit-backface-visibility: visible!important; */
+      }
+      
+      :root {
+        --dark-beige: rgba(234, 219, 160, var(--ten)); /* #eadba0; */
+        --beige: rgba(244, 237, 207, var(--eight)); /* #f4edcf; */       
+      }
+
+      /* small dark-gray text shadow */
+      .ts1-dark-gray {
+        text-shadow: 0px 0.0625rem 0.0625rem #333;
+      }
+
+      @media screen and (min-width: 30em) {
+        .ts1-dark-gray-ns {
+          text-shadow: 0px 0.0625rem 0.0625rem #333;
+        }
+      }
+
+      @media screen and (min-width: 30em) and (max-width: 60em) {
+        .ts1-dark-gray-m {
+          text-shadow: 0px 0.0625rem 0.0625rem #333;
+        }
+      }
+
+      @media screen and (min-width: 60em) {
+        .ts1-dark-gray-l {
+          text-shadow: 0px 0.0625rem 0.0625rem #333;
+        }
+      }
+
+    </style>
 </head>
